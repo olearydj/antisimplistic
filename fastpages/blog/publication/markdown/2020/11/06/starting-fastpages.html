@@ -94,7 +94,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -120,11 +120,26 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#i-may-be-a-hypocrite-but-im-not-wrong">I May be a Hypocrite, But I’m not Wrong.</a></li>
 <li class="toc-entry toc-h2"><a href="#introduction-to-fastpages">Introduction to Fastpages</a></li>
-</ul><h2 id="introduction-to-fastpages">
+</ul><h2 id="i-may-be-a-hypocrite-but-im-not-wrong">
+<a class="anchor" href="#i-may-be-a-hypocrite-but-im-not-wrong" aria-hidden="true"><span class="octicon octicon-link"></span></a>I May be a Hypocrite, But I’m not Wrong.</h2>
+
+<p>I’ve spent over 25 years preaching the value of a portfolio site to artists, software engineers, and designers that wanted to join my studio or learn how to get into the games industry. Now that I’m 6 months into my PhD and planning for career 2.0, it’s past time for me to do the same. This sums up the justification in a single tweet:</p>
+
+<div class="jekyll-twitter-plugin">
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">The popularity of this tweet makes me laugh, because it's an illustrative example! I thought about trying to get a screenshot of David's slide, but just took a terrible phone photo of a webinar and tweeted with the quote.</p>— Amelia McNamara (@AmeliaMN) <a href="https://twitter.com/AmeliaMN/status/1021057793753788422?ref_src=twsrc%5Etfw">July 22, 2018</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
+<p>I recently finished reading <a href="https://www.amazon.com/Build-Career-Science-Jacqueline-Nolis/dp/1617296244/"><em>Build a Career in Data Science</em></a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">1</a></sup>, which I recommend. It motivated me to start the process of sharing my work.</p>
+
+<h2 id="introduction-to-fastpages">
 <a class="anchor" href="#introduction-to-fastpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction to Fastpages</h2>
 
-<p>This site is built with <a href="https://github.com/fastai/fastpages">fastpages</a>, a platform for building static <a href="https://jekyllrb.com/">Jekyll</a> web blogs from Jupyter Notebooks. Markdown and Word DOCs are also supported.</p>
+<p>This site is built with <a href="https://github.com/fastai/fastpages">fastpages</a>, a platform for building static <a href="https://jekyllrb.com/">Jekyll</a> web blogs from Jupyter Notebooks (JNs). Markdown and Word DOCs are also supported.</p>
 
 <p><img src="/antisimplistic/images/diagram.png" alt="" title="https://github.com/fastai/fastpages"></p>
 
@@ -134,7 +149,7 @@ window.onload = wrap_img;
   <p><a href="https://github.com/fastai/fastpages">fastpages</a> automates the process of creating blog posts via GitHub Actions, so you don’t have to fuss with conversion scripts.  A full list of features can be found on <a href="https://github.com/fastai/fastpages">GitHub</a>.</p>
 </blockquote>
 
-<p>Fastpages is built by the <a href="https://www.fast.ai/about/">team</a> that created the deep learning PyTorch front-end <a href="https://docs.fast.ai"><code class="language-plaintext highlighter-rouge">fastai</code></a> and the Python programming environment <a href="https://nbdev.fast.ai"><code class="language-plaintext highlighter-rouge">nbdev</code></a>. The team is led by <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a>, former President and Chief Data Scientist of <a href="https://www.kaggle.com">Kaggle</a> and author of <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527"><em>Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD</em></a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+<p>Fastpages is built by the <a href="https://www.fast.ai/about/">team</a> that created the deep learning PyTorch front-end <a href="https://docs.fast.ai"><code class="language-plaintext highlighter-rouge">fastai</code></a> and the Python programming environment <a href="https://nbdev.fast.ai"><code class="language-plaintext highlighter-rouge">nbdev</code></a>. The team is led by <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a>, former President and Chief Data Scientist of <a href="https://www.kaggle.com">Kaggle</a> and author of <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527"><em>Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD</em></a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">2</a></sup>.</p>
 
 <p>I was first introduced <code class="language-plaintext highlighter-rouge">fastpages</code> and <code class="language-plaintext highlighter-rouge">nbdev</code> during the recent <a href="https://learning.acm.org/techtalks">ACM TechTalk</a>, <a href="https://webinars.on24.com/acm/howard"><em>It’s Time Deep Learning Learned from Software Engineering</em></a>, presented by Howard and moderated by his collaborator <a href="https://twitter.com/hamelhusain">Hamel Husain</a>.</p>
 
@@ -151,12 +166,40 @@ window.onload = wrap_img;
   <li>A <a href="https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html">sample jupyter-based blog page</a> provides a live demonstration of its capabilities</li>
 </ul>
 
-<p>I was able to get the initial site live quite quickly with little drama, and have found the process of modifying existing content and publishing new material straightforward so far.</p>
+<p>I was able to get the initial site live quite quickly with little drama, and have found the process of modifying existing content and publishing new material straightforward so far. Before choosing <code class="language-plaintext highlighter-rouge">fastpages</code> I considered the following hosting / authoring options:</p>
+
+<ul>
+  <li>A general purpose site like <a href="https://www.wix.com">Wix</a>
+</li>
+  <li>A page on <a href="https://medium.com">Medium</a> or <a href="https://substack.com">Substack</a>
+</li>
+  <li>Other JN-based tools like <a href="https://docs.getpelican.com/en/latest/index.html">Pelican</a>
+</li>
+  <li>Finding a way to use JNs in <a href="https://github.com/rstudio/blogdown">blogdown</a><sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote">3</a></sup>
+</li>
+</ul>
+
+<p>I decided that Fastpages was the best way for me to publish JN-based work directly, with professional look and feel, on a site that I control, for free. That’s a pretty great combination. I also like that it supports Markdown (like this page), is part of the larger fast.ai family of products (and philosophy), and is hosted on github.</p>
+
+<p>Finally, if you still need to be convinced of the value of building a portfolio, and what to include in one give the following resources a look:</p>
+
+<ul>
+  <li>
+<a href="http://varianceexplained.org/r/start-blog/">Advice to aspiring data scientists: start a blog</a> on <a href="https://twitter.com/drob">David Robinson’s</a> popular blog, Variance Explained</li>
+  <li><a href="https://www.dataquest.io/blog/build-a-data-science-portfolio/">Data Science Portfolios That Will Get You the Job</a></li>
+  <li><a href="https://towardsdatascience.com/thinking-of-blogging-about-data-science-here-are-some-tips-and-possible-benefits-680ff0e51d67">Thinking of blogging about Data Science? Here are some tips and possible benefits.</a></li>
+</ul>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
+    <li id="fn:2" role="doc-endnote">
+      <p>Robinson, Emily, and Jacqueline Nolis. Build a Career in Data Science. Simon and Schuster, 2020. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
     <li id="fn:1" role="doc-endnote">
       <p>Howard, Jeremy, and Sylvain Gugger. Deep Learning for Coders with Fastai and PyTorch. O’Reilly Media, Inc., 2020. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>There is a lot of cool stuff going on in R these days and blogdown supports a lot of interesting publishing workflows, but I ultimately decided that it would probably be easier to find a way to publish my R work using fastpages than to publish my Python work with blogdown. Time will tell… <a href="#fnref:3" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
 </div>
