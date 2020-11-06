@@ -48,7 +48,7 @@ I decided that Fastpages was the best way for me to publish JN-based work direct
 
 Finally, if you still need to be convinced of the value of building a portfolio, and what to include in one give the following resources a look:
 
-- [Advice to aspiring data scientists: start a blog](http://varianceexplained.org/r/start-blog/) on [David Robinson's](https://twitter.com/drob) popular, Variance Explained
+- [Advice to aspiring data scientists: start a blog](http://varianceexplained.org/r/start-blog/) on [David Robinson's](https://twitter.com/drob) Variance Explained
 - [Data Science Portfolios That Will Get You the Job](https://www.dataquest.io/blog/build-a-data-science-portfolio/)
 - [Thinking of blogging about Data Science? Here are some tips and possible benefits.](https://towardsdatascience.com/thinking-of-blogging-about-data-science-here-are-some-tips-and-possible-benefits-680ff0e51d67)
 
