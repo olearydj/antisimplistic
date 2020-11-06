@@ -12,6 +12,8 @@ I've spent over 25 years preaching the value of a portfolio site to artists, sof
 
 {% twitter https://twitter.com/AmeliaMN/status/1021057793753788422?s=20 %}
 
+> twitter: https://twitter.com/AmeliaMN/status/1021057793753788422?s=20
+
 I recently finished reading [_Build a Career in Data Science_](https://www.amazon.com/Build-Career-Science-Jacqueline-Nolis/dp/1617296244/)[^2], which I recommend. It motivated me to start the process of sharing my work.
 
 ## Introduction to Fastpages
@@ -51,6 +53,10 @@ Finally, if you still need to be convinced of the value of building a portfolio,
 - [Advice to aspiring data scientists: start a blog](http://varianceexplained.org/r/start-blog/) on [David Robinson's](https://twitter.com/drob) popular blog, Variance Explained
 - [Data Science Portfolios That Will Get You the Job](https://www.dataquest.io/blog/build-a-data-science-portfolio/)
 - [Thinking of blogging about Data Science? Here are some tips and possible benefits.](https://towardsdatascience.com/thinking-of-blogging-about-data-science-here-are-some-tips-and-possible-benefits-680ff0e51d67)
+
+Many of us need to spend less time consuming, and more time creating. Now you know how and why, so go publish something!
+
+---
 
 [^1]: Howard, Jeremy, and Sylvain Gugger. Deep Learning for Coders with Fastai and PyTorch. O’Reilly Media, Inc., 2020.
 [^2]: Robinson, Emily, and Jacqueline Nolis. Build a Career in Data Science. Simon and Schuster, 2020.
