@@ -2,12 +2,25 @@
 toc: true
 layout: post
 description: How this site uses fastpages to build a blog from my Jupyter Notebooks and markdown documents.
-categories: [fastpages, blog]
+categories: [fastpages, blog, publication]
 title: Built with fastpages
 ---
 # Introduction to fastpages
 
-fastpages is a platform for building static web blogs from Jupyter Notebooks. Markdown and Word DOCs are also supported.
+This site is built with [fastpages](https://github.com/fastai/fastpages), a platform for building static [Jekyll](https://jekyllrb.com/) web blogs from Jupyter Notebooks. Markdown and Word DOCs are also supported.
+
+![]({{site.baseurl}}/images/diagram.png "https://github.com/fastai/fastpages")
+
+From their github page:
+
+> [fastpages](https://github.com/fastai/fastpages) automates the process of creating blog posts via GitHub Actions, so you don't have to fuss with conversion scripts.  A full list of features can be found on [GitHub](https://github.com/fastai/fastpages).  
+
+---
+
+Fastpages is built by the [team](https://www.fast.ai/about/) that created the deep learning PyTorch front-end [`fastai`](https://docs.fast.ai) and the Python programming environment [`nbdev`](https://nbdev.fast.ai). The team is led by Jeremy Howard, former President and Chief Data Scientist of [Kaggle](https://www.kaggle.com) and author of [_Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD_](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)[^1].
+
+[^1]: Howard, Jeremy, and Sylvain Gugger. Deep Learning for Coders with Fastai and PyTorch. O’Reilly Media, Inc., 2020.
+
 
 ## Basic setup
 
@@ -21,7 +34,7 @@ The first line of the file should start with a single hash character, then a spa
 
 ## Basic formatting
 
-You can use *italics*, **bold**, `code font text`, and create [links](https://www.markdownguide.org/cheat-sheet/). Here's a footnote [^1]. Here's a horizontal rule:
+You can use *italics*, **bold**, `code font text`, and create [links](https://www.markdownguide.org/cheat-sheet/). Here's a footnote[^2]. Here's a horizontal rule:
 
 ---
 
@@ -53,7 +66,7 @@ And a numbered list:
 
 ## Code
 
-You can format text and code per usual 
+You can format text and code per usual
 
 General preformatted text:
 
@@ -101,5 +114,4 @@ key: value
 
 
 
-[^1]: This is the footnote.
-
+[^2]: This is the footnote.
