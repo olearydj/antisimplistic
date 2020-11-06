@@ -10,9 +10,7 @@ image: images/diagram.png
 
 I've spent over 25 years preaching the value of a portfolio site to artists, software engineers, and designers that wanted to join my studio or learn how to get into the games industry. Now that I'm 6 months into my PhD and planning for career 2.0, it's past time for me to do the same. This sums up the justification in a single tweet:
 
-{% twitter https://twitter.com/AmeliaMN/status/1021057793753788422?s=20 %}
-
-> twitter: https://twitter.com/AmeliaMN/status/1021057793753788422?s=20
+<center>{% twitter https://twitter.com/AmeliaMN/status/1021057793753788422?s=20 %}</center>
 
 I recently finished reading [_Build a Career in Data Science_](https://www.amazon.com/Build-Career-Science-Jacqueline-Nolis/dp/1617296244/)[^2], which I recommend. It motivated me to start the process of sharing my work.
 
@@ -50,7 +48,7 @@ I decided that Fastpages was the best way for me to publish JN-based work direct
 
 Finally, if you still need to be convinced of the value of building a portfolio, and what to include in one give the following resources a look:
 
-- [Advice to aspiring data scientists: start a blog](http://varianceexplained.org/r/start-blog/) on [David Robinson's](https://twitter.com/drob) popular blog, Variance Explained
+- [Advice to aspiring data scientists: start a blog](http://varianceexplained.org/r/start-blog/) on [David Robinson's](https://twitter.com/drob) popular, Variance Explained
 - [Data Science Portfolios That Will Get You the Job](https://www.dataquest.io/blog/build-a-data-science-portfolio/)
 - [Thinking of blogging about Data Science? Here are some tips and possible benefits.](https://towardsdatascience.com/thinking-of-blogging-about-data-science-here-are-some-tips-and-possible-benefits-680ff0e51d67)
 
