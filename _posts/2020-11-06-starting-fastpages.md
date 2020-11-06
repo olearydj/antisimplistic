@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: A description of fastpages
+description: How this site uses fastpages to build a blog from my Jupyter Notebooks and markdown documents.
 categories: [fastpages, blog]
 title: Built with fastpages
 ---
