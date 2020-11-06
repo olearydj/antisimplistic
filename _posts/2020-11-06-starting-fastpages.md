@@ -1,11 +1,11 @@
 ---
 toc: true
 layout: post
-description: How this site uses fastpages to build a blog from my Jupyter Notebooks and markdown documents.
-categories: [fastpages, blog, publication]
-title: Built with fastpages
+description: Notes about using fastpages to build a blog from my Jupyter Notebooks and Markdown documents.
+categories: [fastpages, blog, publication, markdown]
+title: Blogging with Fastpages
 ---
-# Introduction to fastpages
+# Introduction to Fastpages
 
 This site is built with [fastpages](https://github.com/fastai/fastpages), a platform for building static [Jekyll](https://jekyllrb.com/) web blogs from Jupyter Notebooks. Markdown and Word DOCs are also supported.
 
@@ -15,11 +15,18 @@ From their github page:
 
 > [fastpages](https://github.com/fastai/fastpages) automates the process of creating blog posts via GitHub Actions, so you don't have to fuss with conversion scripts.  A full list of features can be found on [GitHub](https://github.com/fastai/fastpages).  
 
----
+Fastpages is built by the [team](https://www.fast.ai/about/) that created the deep learning PyTorch front-end [`fastai`](https://docs.fast.ai) and the Python programming environment [`nbdev`](https://nbdev.fast.ai). The team is led by [Jeremy Howard](https://twitter.com/jeremyphoward), former President and Chief Data Scientist of [Kaggle](https://www.kaggle.com) and author of [_Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD_](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)[^1].
 
-Fastpages is built by the [team](https://www.fast.ai/about/) that created the deep learning PyTorch front-end [`fastai`](https://docs.fast.ai) and the Python programming environment [`nbdev`](https://nbdev.fast.ai). The team is led by Jeremy Howard, former President and Chief Data Scientist of [Kaggle](https://www.kaggle.com) and author of [_Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD_](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)[^1].
+Some resources I found helpful in launching this blog:
+- The [fastpages github page](https://github.com/fastai/fastpages) has detailed setup instructions
+- This [video tutorial](https://youtu.be/L0boq3zqazI) created by [Abdul Majed](https://twitter.com/1littlecoder) walks you through the initial setup process
+- A [sample blog page](https://fastpages.fast.ai/fastpages/jupyter/2020/02/21/introducing-fastpages.html) provides a live demonstration of its capabilities
+
 
 [^1]: Howard, Jeremy, and Sylvain Gugger. Deep Learning for Coders with Fastai and PyTorch. O’Reilly Media, Inc., 2020.
+
+
+
 
 
 ## Basic setup
