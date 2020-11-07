@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-<img align="right" width="450" src="{{site.baseurl}}/images/au-nsi-gsi.png">
+<img align="right" width="500" src="{{site.baseurl}}/images/au-nsi-gsi.png">
 
 ## Links
 
@@ -18,10 +18,10 @@ permalink: /about/
 ## Bio
 <img align="left" height="300" src="{{site.baseurl}}/images/hello.png">
 
-Antisimplistic is Dan O'Leary, a second career PhD student and Graduate Assistant in the Department of Industrial and Systems Engineering  at Auburn University. After 23 years in the games industry as a co-founder of the independent development studio [n-Space](https://en.wikipedia.org/wiki/N-Space), it was time for a change.
+Antisimplistic is Dan O'Leary, a second career PhD student and Graduate Assistant in the Department of Industrial and Systems Engineering  at Auburn University. After 23 years in the games industry as a co-founder of the independent development studio [n-Space](https://en.wikipedia.org/wiki/N-Space), it was past time for a change.
 
-I currently teach undergraduate courses covering innovation, entrepreneurship, product development and leadership in the [Business-Engingeering-Technology minor](http://www.eng.auburn.edu/research/centers/twc/bet-program/index.html), and support related initiatives at the [Thomas Walter Center for Technology Management](http://www.eng.auburn.edu/research/centers/twc/index.html).
+I currently teach undergraduate courses covering innovation, entrepreneurship, product development and leadership in the department's [Business-Engingeering-Technology](http://www.eng.auburn.edu/research/centers/twc/bet-program/index.html) minor, and support related initiatives at the [Thomas Walter Center for Technology Management](http://www.eng.auburn.edu/research/centers/twc/index.html).
 
 My academic and research interests are broad, encompassing data science, simulation, and visualization. For my dissertation I plan to apply methods from those areas to improve our understanding of processes related to innovation or product development processes.
 
-Meanwhile, I continue to maintain [GUNSTRUCTION](https://gunstruction.net), which will log over 90 million interactions in 2020 across web, iOS, and Android devices.
+Meanwhile, I continue to maintain [GUNSTRUCTION](https://gunstruction.net), which I founded in 2012 and will log over 90 million interactions in 2020 across web, iOS, and Android devices.
