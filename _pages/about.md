@@ -8,8 +8,12 @@ Dan O'Leary is Antisimplistic, a second career PhD student and Graduate Assistan
 
 I teach undergraduate courses covering innovation, entrepreneurship, product development and leadership in the [Business-Engingeering-Technology minor](http://www.eng.auburn.edu/research/centers/twc/bet-program/index.html), and support related initiatives at the [Thomas Walter Center for Technology Management](http://www.eng.auburn.edu/research/centers/twc/index.html).
 
+- [Portfolio](https://olearydj.github.io/antisimplistic/categories/)
+- [Blog](https://olearydj.github.io/antisimplistic/)
 - [LinkedIn](https://www.linkedin.com/in/djoleary/)
 - [Twitter](https://twitter.com/antisimplistic)
 - [Github](https://github.com/olearydj)
 - [Resume (Long Form)]({{ site.baseurl }}/docs/2020-11-07-DJO-Resume.pdf)
 - [Student CV]({{ site.baseurl }}/docs/2020-11-07-DJO-CV-Student-Portfolio.pdf)
+
+![]({{site.baseurl}}/images/diagram.png "https://github.com/fastai/fastpages")
