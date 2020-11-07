@@ -8,7 +8,7 @@ image: images/diagram.png
 ---
 ## I may be a hypocrite, but I'm not wrong...
 
-I've spent over 25 years preaching the value of a portfolio site to artists, software engineers, and designers that wanted to join my studio or learn how to get into the games industry. Now that I'm 6 months into my PhD and planning for career 2.0, it's past time for me to do the same. This sums up the justification in a single tweet:
+I've spent over 25 years preaching the value of a portfolio site to artists, software engineers, and designers that wanted to join my studio or learn how to get into games or related industries. Now that I'm 6 months into my PhD and planning for career 2.0, it's past time for me to do the same. This sums up the justification in a single tweet:
 
 <center>{% twitter https://twitter.com/AmeliaMN/status/1021057793753788422?s=20 %}</center>
 
