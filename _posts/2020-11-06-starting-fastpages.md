@@ -12,7 +12,7 @@ I've spent over 25 years preaching the value of a portfolio site to artists, sof
 
 <center>{% twitter https://twitter.com/AmeliaMN/status/1021057793753788422?s=20 %}</center>
 
-I recently finished reading [_Build a Career in Data Science_](https://www.amazon.com/Build-Career-Science-Jacqueline-Nolis/dp/1617296244/)[^2], which I recommend. It motivated me to start the process of sharing my work.
+I recently finished reading [_Build a Career in Data Science_](https://amzn.to/32kxgJg)[^2], which I recommend. It motivated me to start the process of sharing my work.
 
 ## Introduction to Fastpages
 
@@ -24,7 +24,7 @@ From their github page:
 
 > [fastpages](https://github.com/fastai/fastpages) automates the process of creating blog posts via GitHub Actions, so you don't have to fuss with conversion scripts.  A full list of features can be found on [GitHub](https://github.com/fastai/fastpages).  
 
-Fastpages is built by the [team](https://www.fast.ai/about/) that created the deep learning PyTorch front-end [`fastai`](https://docs.fast.ai) and the Python programming environment [`nbdev`](https://nbdev.fast.ai). The team is led by [Jeremy Howard](https://twitter.com/jeremyphoward), former President and Chief Data Scientist of [Kaggle](https://www.kaggle.com) and author of [_Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD_](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)[^1].
+Fastpages is built by the [team](https://www.fast.ai/about/) that created the deep learning PyTorch front-end [`fastai`](https://docs.fast.ai) and the Python programming environment [`nbdev`](https://nbdev.fast.ai). The team is led by [Jeremy Howard](https://twitter.com/jeremyphoward), former President and Chief Data Scientist of [Kaggle](https://www.kaggle.com) and author of [_Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD_](https://amzn.to/3p3MpIJ)[^1].
 
 I was first introduced `fastpages` and `nbdev` during the recent [ACM TechTalk](https://learning.acm.org/techtalks), [_It's Time Deep Learning Learned from Software Engineering_](https://webinars.on24.com/acm/howard), presented by Howard and moderated by his collaborator [Hamel Husain](https://twitter.com/hamelhusain).
 
