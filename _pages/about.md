@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-<right>![]({{site.baseurl}}/images/hello.png)</right>
+<img align="left" width="100" height="100" src={{site.baseurl}}"/images/hello.png">
 
 Dan O'Leary is Antisimplistic, a second career PhD student and Graduate Assistant in the Department of Industrial and Systems Engineering  at Auburn University. After 23 years in the games industry as the co-founder of the independent game development studio [n-Space](https://en.wikipedia.org/wiki/N-Space) it was time for a change. My academic and research interests are... broad.
 
