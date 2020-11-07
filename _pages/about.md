@@ -24,4 +24,4 @@ I currently teach undergraduate courses covering innovation, entrepreneurship, p
 
 My academic and research interests are broad, encompassing data science, simulation, and visualization. For my dissertation I plan to apply methods from those areas to improve our understanding of processes related to innovation or product development processes.
 
-Meanwhile, I continue to maintain [GUNSTRUCTION](https://gunstruction.net), which I founded in 2012 and will log over 90 million interactions in 2020 across web, iOS, and Android devices.
+Meanwhile, I continue to maintain [GUNSTRUCTION](https://gunstruction.net), which I founded in 2012. This year (2020) it will log over 90 million user interactions across web, iOS, and Android devices.
