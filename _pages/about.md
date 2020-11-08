@@ -7,8 +7,9 @@ permalink: /about/
 
 ## Links
 
-- [Portfolio](https://olearydj.github.io/antisimplistic/markdown/portfolio/2020/11/07/portfolio-index.html)
-- [Blog](https://olearydj.github.io/antisimplistic/)
+[//]: # (- [Portfolio](https://olearydj.github.io/antisimplistic/markdown/portfolio/2020/11/07/portfolio-index.html))
+
+- [Blog / Portfolio](https://olearydj.github.io/antisimplistic/)
 - [LinkedIn](https://www.linkedin.com/in/djoleary/)
 - [Twitter](https://twitter.com/antisimplistic)
 - [Github](https://github.com/olearydj)
