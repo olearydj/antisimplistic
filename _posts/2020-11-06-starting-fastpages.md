@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: "Notes about using fastpages to build a blog from my Jupyter Notebooks and Markdown documents."
-categories: [fastpages, blog, publication, markdown]
+categories: [blog, publication]
 title: "Blogging with Fastpages"
 image: images/diagram.png
 ---

@@ -2,7 +2,7 @@
 toc: false
 layout: post
 description: "An index of portfolio posts"
-categories: [markdown, portfolio]
+categories: [portfolio]
 title: "My Portfolio Pages"
 image: images/portfolio.png
 hide: true
