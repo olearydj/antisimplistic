@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Worth Reading: Exploring Jupyter Notebook-Based Research Workflows | Antisimplistic</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Worth Reading: Exploring Jupyter Notebook-Based Research Workflows" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Why Jupyter Notebooks appeal to me for academic research and what tools / methods exist to support notebook-based development and publishing with good software engineering practices." />
+<meta property="og:description" content="Why Jupyter Notebooks appeal to me for academic research and what tools / methods exist to support notebook-based development and publishing with good software engineering practices." />
+<link rel="canonical" href="https://olearydj.github.io/antisimplistic/worthreading/jupyter/2020/11/19/wr-exploring-jn-based-research.html" />
+<meta property="og:url" content="https://olearydj.github.io/antisimplistic/worthreading/jupyter/2020/11/19/wr-exploring-jn-based-research.html" />
+<meta property="og:site_name" content="Antisimplistic" />
+<meta property="og:image" content="https://olearydj.github.io/antisimplistic/images/jupyternb.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-19T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"Why Jupyter Notebooks appeal to me for academic research and what tools / methods exist to support notebook-based development and publishing with good software engineering practices.","url":"https://olearydj.github.io/antisimplistic/worthreading/jupyter/2020/11/19/wr-exploring-jn-based-research.html","@type":"BlogPosting","headline":"Worth Reading: Exploring Jupyter Notebook-Based Research Workflows","dateModified":"2020-11-19T00:00:00-06:00","datePublished":"2020-11-19T00:00:00-06:00","image":"https://olearydj.github.io/antisimplistic/images/jupyternb.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://olearydj.github.io/antisimplistic/worthreading/jupyter/2020/11/19/wr-exploring-jn-based-research.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/antisimplistic/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://olearydj.github.io/antisimplistic/feed.xml" title="Antisimplistic" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','G-42ZKBLY57C','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/antisimplistic/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/antisimplistic/">Antisimplistic</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/antisimplistic/about/">About Me</a><a class="page-link" href="/antisimplistic/search/">Search</a><a class="page-link" href="/antisimplistic/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Worth Reading: Exploring Jupyter Notebook-Based Research Workflows</h1><p class="page-description">Why Jupyter Notebooks appeal to me for academic research and what tools / methods exist to support notebook-based development and publishing with good software engineering practices.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-19T00:00:00-06:00" itemprop="datePublished">
+        Nov 19, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/antisimplistic/categories/#worthreading">worthreading</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/antisimplistic/categories/#jupyter">jupyter</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><p>Much of my life has been centered around software. In middle school I was writing <a href="https://playermissile.com/dli_tutorial/">vertical blank interrupts in assembly language for the 6502 in my Atari 800</a>. In 1994 I co-founded the first of two software development companies that I’ve run ever since. Despite all that, I’ve never considered myself a “software guy.” The traditional pattern of write code, compile, check is… well, hard. And discouraging. I have tremendous respect for folks that have mastered this, and consider myself very fortunate to have employed many great, and a few truly exceptional software engineers.</p>
+
+<p>But for me, there had to be a better way. Upon returning to graduate school for Dan 2.0, I found it. Python and Jupyter Notebooks (JNs). The combination of Python’s interpreted nature and the way that JNs combine code, output, and text provided an approach that was much more natural and welcoming to me. Over time, it allowed me to build enough skill and confidence “hacking away” at data science projects that I have begun exploring software engineering and carpentry.</p>
+
+<p>To that end, I’ve recently spent a lot of time reading about workflows built around notebooks, especially those that facilitate good software engineering practices, single-source publishing, integration, and deployment. As my PhD focus transitions from classes to research, my goal is to leverage these methods to improve the efficiency, quality, and reproducibility of my work while making it easier to publish in a variety of ways. My eyes were initially opened to this world by the first article linked below, which led me down the wonderful rabbit hole that followed.</p>
+
+<ul>
+  <li>
+<a href="https://www.fast.ai/2019/12/02/nbdev/">nbdev: use Jupyter Notebooks for everything</a>: this article first opened my eyes to very interesting things going on in the JN ecosystem, leading to many of the articles linked below. nbdev is a “highly opinionated” Python programming environment that supports software engineering best practices (automated documentation, package creation, testing, continuous integration, source control, and more) for JNs. <a href="https://nbdev.fast.ai">nbdev</a> was created by <a href="https://www.fast.ai/about/">the team</a> that created the deep learning PyTorch front-end <a href="https://docs.fast.ai"><code class="language-plaintext highlighter-rouge">fastai</code></a> and <a href="https://github.com/fastai/fastpages">fastpages</a>, which this blog is built with. Not at all coincidentally, fastpages is powered, at least in part, by nbdev. All of this was developed by the author <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a>, former President and Chief Data Scientist of <a href="https://www.kaggle.com">Kaggle</a>, and <a href="https://twitter.com/GuggerSylvain">Sylvain Gugger</a>, now “solving Natural Language Processing, one commit at a time” at <a href="https://huggingface.co">Hugging Face</a>. Together, they co-authored <a href="https://amzn.to/3p3MpIJ"><em>Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD</em></a>. I am working with nbdev and will share my experience in future updates.</li>
+  <li>
+<a href="https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/">How to use Jupyter Notebooks in 2020</a>: the first of an insightful three-part series on the JN ecosystem. In it, author <a href="https://twitter.com/ljvmiranda921">Lj Miranda</a> covers the evolution of methods of practice in the data science landscape, current tools and best practices for notebook-based development workflows, and thoughts on the future. I found the second part particularly useful, with lots of technical detail.</li>
+  <li>
+<a href="https://netflixtechblog.com/notebook-innovation-591ee3221233">Beyond Interactive: Notebook Innovation at Netflix</a>: continuing with the JN theme, this article discusses how “notebooks are the most popular tool for working with data” at Netflix. It describes the workflow, including scheduled runs of parameterized notebooks and collecting code and output into notebooks to create a record of various jobs. It also describes the extensive infrastructure required to support this at scale. At the time of its writing in 2018, the authors were planning to run more than 150,000 notebook-based jobs per day. This is the first of a two-part series. The second, <a href="https://netflixtechblog.com/scheduling-notebooks-348e6c14cfd6">Scheduling Notebooks at Netflix</a>, dives more deeply into the details. Note that two of the original authors, <a href="https://twitter.com/codeseal">Matthew Seal</a> and <a href="https://twitter.com/MichelleUfford">Michelle Ufford</a> have since left Netflix to found <a href="https://noteable.io">noteable.io</a>, a “SaaS offering for integrated Jupyter Notebooks”.</li>
+  <li>
+<a href="https://zonca.dev/2020/09/how-to-share-jupyter-notebooks.html">How to share Jupyter Notebooks</a>: complements the previous article by providing more ways to share JNs including gist, nbviewer, and binder. By <a href="https://twitter.com/andreazonca">Andrea Zonca</a>
+</li>
+  <li>
+<a href="https://medium.com/@mjspeck/presenting-code-using-jupyter-notebook-slides-a8a3c3b59d67">Presenting Code Using Jupyter Notebook Slides</a>: I was today years old when I learned that the ability to run slide-based presentations was built into JNs! A very short tutorial on how to do it by <a href="https://twitter.com/mjspeck">Matthew Speck</a>.</li>
+</ul>
+
+<p>My focus above is on Jupyter Notebooks, but there are lots of cool things going on in the RStudio world as well, especially related single-source, “one-click” publishing. Many great web-books about/using R have been published from R Notebooks using <a href="https://rmarkdown.rstudio.com">R markdown</a> and <a href="https://bookdown.org">bookdown</a>, including <a href="https://twitter.com/hadleywickham">Hadley Wickham’s</a> classic <a href="https://amzn.to/2IHlRgd">R for Data Science</a>. A list of other examples can be found on <a href="https://bookdown.org/home/archive/">the bookdown archive page</a>.</p>
+
+<p>Here are a few relevant and timely R-related links:</p>
+
+<ul>
+  <li>
+<a href="https://blog.rstudio.com/2020/11/09/rstudio-1-4-preview-citations/">RStudio 1.4 Preview: Citations</a>: a close look at the deep support for citations included in the upcoming <a href="https://twitter.com/rstudio">RStudio</a> v1.4, currently <a href="https://www.rstudio.com/products/rstudio/download/preview/">available as a preview release</a>. Other features in the update include improved support for Python and a <a href="https://www.rstudio.com/products/rstudio/download/preview/">visual markdown editor</a>.</li>
+  <li>
+<a href="https://masalmon.eu/2020/11/06/single-source-publishing-r/">Single-source publishing for R users</a>: describes a typical process for generating html- and pdf-based books from R Markdown using bookdown and ways to simplify and automate the process. I don’t pretend to understand everything going on here, but know enough to appreciate the author, <a href="https://twitter.com/ma_salmon">Maëlle Salmon’s</a> work enough to share and bookmark it!</li>
+</ul>
+
+  </div><a class="u-url" href="/antisimplistic/worthreading/jupyter/2020/11/19/wr-exploring-jn-based-research.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/antisimplistic/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/antisimplistic/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/antisimplistic/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Research, notes, and projects.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/olearydj" title="olearydj"><svg class="svg-icon grey"><use xlink:href="/antisimplistic/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/antisimplistic" title="antisimplistic"><svg class="svg-icon grey"><use xlink:href="/antisimplistic/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
