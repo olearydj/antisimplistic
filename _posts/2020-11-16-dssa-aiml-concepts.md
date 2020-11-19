@@ -1,9 +1,9 @@
 ---
 toc: false
 layout: post
-description: "Introducing AI and ML concepts presentation given to the Data Science Society of Auburn, a mix of undergraduate and graduate students interested in the field."
+description: "A presentation given to the Data Science Society of Auburn, a mix of undergraduate and graduate students interested in the field."
 categories: [presentation, datascience]
-title: "Presentation: Data Science Concepts"
+title: "Big Picture Data Science Concepts"
 image: images/aimlconcepts.png
 ---
 

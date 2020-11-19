@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: "A collection of links describing tools and methods that support nb-based research, development, and publishing workflows with good software engineering practices."
+description: "A collection of links describing tools and methods that support nb-based research and publishing workflows with good software engineering practices."
 categories: [worthreading, jupyter]
 title: "Exploring Jupyter Notebook-Based Research"
 image: images/jupyternb.png
