@@ -5,6 +5,7 @@ description: "A collection of links describing tools and methods that support nb
 categories: [worthreading, jupyter]
 title: "Exploring Jupyter Notebook-Based Research"
 image: images/jupyternb.png
+comments: true
 ---
 
 Much of my life has been centered around software. In middle school I was writing [vertical blank interrupts in assembly language for the 6502 in my Atari 800](https://playermissile.com/dli_tutorial/). In 1994 I co-founded the first of two software development companies that I've run ever since. Despite all that, I've never considered myself a "software guy." The traditional pattern of write code, compile, check is... well, hard. And discouraging. I have tremendous respect for folks that have mastered this, and consider myself very fortunate to have employed many great, and a few truly exceptional software engineers.
