@@ -5,6 +5,7 @@ description: "A presentation given to the Data Science Society of Auburn, a mix 
 categories: [presentation, datascience]
 title: "Big Picture Data Science Concepts"
 image: images/aimlconcepts.png
+comments: true
 ---
 
 In less than 4 months, with minimal fanfare, the Data Science Society of Auburn has attracted nearly 100 members, including a mix of graduate and undergraduate students pursuing a wide range of degrees. Upon hearing about this new student organization I reached out to the founder, [Jordan Eckert](https://twitter.com/jpeckert), to offer my assistance. I have since been elected as the Director of Career Programming. If you are reading this and are interested in presenting to our students and/or participating in an upcoming career event, I welcome your email at <dan.oleary@auburn.edu>!

@@ -5,6 +5,7 @@ description: "Notes about using fastpages to build a blog from my Jupyter Notebo
 categories: [publication, jupyter]
 title: "Blogging with Fastpages"
 image: images/diagram.png
+comments: true
 ---
 ## I may be a hypocrite, but I'm not wrong...
 
