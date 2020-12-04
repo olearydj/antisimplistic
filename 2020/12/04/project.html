@@ -1,0 +1,530 @@
+<h1 id="introduction">Introduction</h1>
+
+<p>The goal of this project is to perform text sentiment analysis on a data
+set of user reviews for the Nintendo Switch game <em>Animal Crossing: New
+Horizons</em> (ACNH), a “life simulation video game developed and published
+by Nintendo for the Nintendo Switch,”
+(<a href="https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons">Wikipedia</a>).</p>
+
+<p><img src="acnh-screenshot.jpg" alt="*Animal Crossing: New Horizons* Screenshots" /></p>
+
+<p>From their starting point on a deserted island, ACNH players explore and
+customize their island, gather and craft items, and catch insects and
+fish. All of this activity (and much more) plays out in real calendar
+time as players invest many hours developing their islands into thriving
+communities of anthropomorphic animals.</p>
+
+<p>In less than 6 months following its March 2020 release, ACNH sold over
+22 million units worldwide. It became something of a cultural phenomena
+in the process, complete with <a href="https://people.com/celebrity/celebrities-who-play-animal-crossing/">celebrity
+sightings</a>,
+<a href="https://www.today.com/parents/grandma-loves-playing-nintendo-s-animal-crossing-game-t178182">grandmothers logging 3,500+ hours of play
+time</a>,
+and a thriving <a href="https://ac-turnip.com">in-game currency market based on
+turnips</a>.</p>
+
+<p>While ACNH provides an interesting, lighthearted context for this
+project, very little domain knowledge is required, and the problem and
+methods associated with natural language processing and sentiment
+analysis are broadly applicable. The roots of this field can be traced
+back to public opinion analysis in the early 20th century. It wasn’t
+until the mid 2000’s that modern data mining methods made the problem
+tractable, with 99% of related papers appearing after 2004. Since then,
+over 7,000 papers have been published on the topic, making it one of the
+fastest growing research areas in data science (Mäntylä et al.).</p>
+
+<h2 id="literature-review">Literature Review</h2>
+
+<p>This project is based on a
+<a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> exercise.
+TidyTuesday is a “social data project in R” that gives R users of all
+levels an opportunity to “apply [their] R skills, get feedback,
+explore other’s work, and connect with the greater <code class="language-plaintext highlighter-rouge">#RStats</code> community”
+every week. Past data sets have featured everything from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-11-03/readme.md">Ikea
+Furniture</a>
+to <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-01/readme.md">Global Crop
+Yields</a>.</p>
+
+<p>The original TidyTuesday Animal Crossing <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-05/readme.md">exercise is linked
+here</a>.
+While completing this project I relied on a number of responses to that
+exercise, including Julia Silge’s <a href="https://juliasilge.com/blog/animal-crossing/">blog
+post</a>.</p>
+
+<p>The modeling and analysis for this project was performed in R using a
+workflow based on the <a href="https://www.tidyverse.org">tidyverse</a> and
+<a href="https://www.tidymodels.org">tidymodels</a> library collections, employing
+best practices advocated in those communities. This document was
+generated directly from the R Markdown file (provided separately), which
+includes all code.</p>
+
+<p>In addition to the aformentioned blog page, I referred to several other
+resources created by Ms. Silge and collaborators:</p>
+
+<ul>
+  <li><a href="https://smltar.com">Supervised Machine Learning for Text Analysis in
+R</a>, an online book authored in R Markdown</li>
+  <li><a href="https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/#1">Predictive Modeling with Text Using Tidy Data
+Principles</a>,
+a tutorial presentation supporting the previous book</li>
+  <li><a href="https://www.tmwr.org">Tidy Modeling in R</a>, another online book</li>
+  <li><a href="https://supervised-ml-course.netlify.app">Supervised Machine Learning Case Studies in
+R</a>, a short online course</li>
+</ul>
+
+<h2 id="detailed-problem-description">Detailed Problem Description</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">user_review</code> data provided for this exercise was originally scraped
+from the popular meta-review site
+<a href="https://www.metacritic.com/game/switch/animal-crossing-new-horizons/critic-reviews">Metacritic</a>.
+Each of the 2,999 observations has four features: <code class="language-plaintext highlighter-rouge">grade</code>, <code class="language-plaintext highlighter-rouge">user_name</code>,
+<code class="language-plaintext highlighter-rouge">text</code>, and <code class="language-plaintext highlighter-rouge">date</code>. The <code class="language-plaintext highlighter-rouge">grade</code> feature is the review score, an integer
+in the range <code class="language-plaintext highlighter-rouge">[0, 10]</code>, and <code class="language-plaintext highlighter-rouge">text</code> is the written feedback provided by
+each user. The other fields are self-explanatory. A summary of the data
+structure is provided below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## Rows: 2,999
+## Columns: 4
+## $ grade     &lt;dbl&gt; 4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
+## $ user_name &lt;chr&gt; "mds27272", "lolo2178", "Roachant", "Houndf", "Profess…
+## $ text      &lt;chr&gt; "My gf started playing before me. No option to create …
+## $ date      &lt;date&gt; 2020-03-20, 2020-03-20, 2020-03-20, 2020-03-20, 2020-…
+</code></pre></div></div>
+
+<p>My goal is to build a model that can interpret each reviewer’s sentiment
+for the game based on the review text. This is a supervised learning
+problem where <code class="language-plaintext highlighter-rouge">grade</code> is used to create a binary label for each review.
+The underlying assumption is that the score assigned by each user is
+consistent with the text of their review. The resulting model can be
+used to categorize user sentiment for unlabled review data.</p>
+
+<h1 id="development">Development</h1>
+
+<p>A full end-to-end analysis follows, including:</p>
+
+<ul>
+  <li>Initial data cleaning and exploration</li>
+  <li>Implement a strategy for model assessment using cross-validation</li>
+  <li>Build a series of models of increasing complexity</li>
+  <li>Explore the impact of typical text analysis methods on model
+accuracy</li>
+  <li>Rigorously explore the hyperparameter space using grid-based search
+methods</li>
+  <li>Select the best model based on appropriate performance metrics</li>
+  <li>Fit the final model to the full training set &amp; evaluate its
+performance on test data</li>
+</ul>
+
+<p>Four different models are built and evaluated in this manner, as
+described in the <a href="#experiments">Experiments</a> section, below.</p>
+
+<h2 id="data-prep-and-exploration">Data Prep and Exploration</h2>
+
+<p>Before any model is built it is important to explore the data set. I
+began by creating a histogram to visualize the distribution of user
+review scores.</p>
+
+<p><img src="Project_files/figure-markdown_github/Plot Grade Dist-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<p>It would be reasonable to expect a gaussian-like distribution here, with
+a rounded peak somewhere between 3 and 7, tailing off on either side.
+Instead, we see nearly the opposite, with peaks at 0 and 10, and a
+shallow u-shaped distribution between. In the world of online reviews,
+especially for games, this sadly predictable behavior. Here some domain
+expertise is helpful…</p>
+
+<h3 id="review-bombing">Review Bombing</h3>
+
+<p>Despite ACNH’s
+<a href="https://www.metacritic.com/game/switch/animal-crossing-new-horizons/critic-reviews">metacritic</a>
+score of 90% (making it one of the highest rated games of 2020 in the
+eyes of professional critics), its user reviews average just 55%.
+Players critical of the limits placed on all but the first player to
+start the game have resorted to <a href="https://metro.co.uk/2020/04/28/animal-crossing-new-horizons-review-bombed-metacritic-one-island-limit-12620031/"><em>review
+bombing</em></a>:</p>
+
+<blockquote>
+  <p><em>“an Internet phenomenon in which large groups of people leave
+negative user reviews online for a published work, most commonly a
+video game or a theatrical film, in an attempt to harm the sales or
+popularity of a product, particularly to draw attention to an issue
+with the product or its vendor,”</em> -
+<a href="https://en.wikipedia.org/wiki/Review_bomb">Wikipedia</a>.</p>
+</blockquote>
+
+<p>The graph above clearly depicts this adolescent behavior, where the
+“haters” and “fanboys” have squared off to show their ire and support,
+respectively. This is something to keep in mind throughout the project.</p>
+
+<h3 id="cleaning-and-feature-engineering">Cleaning and Feature Engineering</h3>
+
+<p>For the purposes of this project it is also important to have a good
+sense of what is found in the review text field. Samples of review text
+were pulled for both positive (<code class="language-plaintext highlighter-rouge">grade &gt; 8</code>) and negative (<code class="language-plaintext highlighter-rouge">grade &lt; 3</code>)
+observations and inspected. In doing so I noticed that longer entries
+tended to include repeated text and end with the word “Expand.” These
+problems were likely introduced during the scraping process. I also
+noticed that some entries are not in English.</p>
+
+<p>After some light initial cleanup of the text field, a new <code class="language-plaintext highlighter-rouge">rating</code>
+column was added to label each review based on the <code class="language-plaintext highlighter-rouge">grade</code>. In order to
+use binary classification methods, <code class="language-plaintext highlighter-rouge">rating</code> was set to “good” for values
+greater than 5.0 and “bad” otherwise. This cutoff point was chosen based
+on the average user review of 5.5, but it also seems natural. The
+remaining cleanup of text data is done as part of the
+<a href="#tokenization">Tokenization</a> process, described below.</p>
+
+<h3 id="final-exploration">Final Exploration</h3>
+
+<p>Two final plots were created to complete my exploration. First, the
+number of words per review was visualized using a histogram. The
+discontinuity in the resulting graph gives further evidence of problems
+with the scraped data. Otherwise, this result is as expected, with most
+reviews being relatively short (less than 75 words), but some users have
+submitted nearly 1,000 words! The red vertical line shows the average of
+120.95 words per review.</p>
+
+<p>Next, I looked for obvious relationships between <code class="language-plaintext highlighter-rouge">grade</code> and review
+length using a box and whiskers plot. The number of outliers increases
+with more extreme reviews, which seems to follow my intuition that
+reviewers scoring the game very high or very low are more prone to
+support their scores with extended rants / raves.</p>
+
+<p><img src="Project_files/figure-markdown_github/Final Plots-1.png" style="display: block; margin: auto;" /></p>
+
+<h3 id="train-test-split">Train-Test Split</h3>
+
+<p>Lastly, the data was split into training and testing sets using the
+customary 75/25 split. Training data will be used to fit the model and
+tune the hyperparameters. Test data is reserved for final evaluation of
+the best model to estimate its performance on new, unseen data. The
+split was stratified by <code class="language-plaintext highlighter-rouge">rating</code> to ensure that the training and test
+sets were balanced on the response variable. The splits are summarized
+below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##   rating count percent source
+## 1    bad  1369   60.84  train
+## 2   good   881   39.16  train
+## 3    bad   456   60.88   test
+## 4   good   293   39.12   test
+</code></pre></div></div>
+
+<h2 id="experiments">Experiments</h2>
+
+<p>Null, Naive Bayes, Support Vector Machine, and Logistic (Lasso)
+Regression models are built and evaluated on both training and test
+data. The Null model is used to establish baseline performance metrics.
+The others were chosen for their performance on sparse data, a key
+characteristic of natural language problems that results from
+tokenization of the input data.</p>
+
+<h3 id="tokenization">Tokenization</h3>
+
+<p>Tokenization is the process of converting the input text data into a
+format suitable for training ML algorithms. While many approaches are
+used, the method I used covers the essential steps. It begins with
+splitting the raw strings into <em>tokens</em> based on a combination of
+whitespace, punctuation, and other factors. I will use word tokens, as
+is the most common practice, but tokens can be characters, groups of
+words (n-grams), etc.</p>
+
+<p>The resulting token list is filtered down using a list of <em>stop words</em>
+to remove elements with little predictive value. The reduced list is
+then sorted by frequency and the top 500 tokens are converted to “term
+frequency-inverse document frequency”, or TFIDF format. According to
+<a href="https://textrecipes.tidymodels.org/reference/step_tfidf.html">the
+documentation</a>,
+TFIDF is the product of term frequency, the number of times each token
+appears in each observation, and the inverse document frequency, a
+measure of how informative a word is based on its rarity). Together
+these assess the overall value of each token. Finally, the TFIDF values
+are normalized.</p>
+
+<p>These steps are implemented in the <code class="language-plaintext highlighter-rouge">tidymodels::recipe</code> defined below:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">review_rec</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">recipe</span><span class="p">(</span><span class="n">rating</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">review_train</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">step_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">step_stopwords</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">step_tokenfilter</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">max_tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">step_tfidf</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">step_normalize</span><span class="p">(</span><span class="n">all_predictors</span><span class="p">())</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This recipe of preprocessing steps will be shared by all model worflows.
+When applied to the training data, the result is a table with 2,250 rows
+(one per observation), and 501 columns (one per token, plus the response
+<code class="language-plaintext highlighter-rouge">rating</code>). An extract is shown below for the tokens “access”, “account”,
+and “accounts”.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##   rating tfidf_text_access tfidf_text_account tfidf_text_accounts
+## 1    bad        -0.1447401         -0.2129978          -0.1330606
+</code></pre></div></div>
+
+<h3 id="method-0---null-model-baseline">Method 0 - Null Model Baseline</h3>
+
+<p>To establish a performance baseline, a Null Model was first constructed.
+This trivial case predicts the majority class for all observations.
+Based on the prior stratification statistics, we should expect 60.8%
+accuracy classifying as <code class="language-plaintext highlighter-rouge">bad</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">tidymodels</code> framework was used to define a model specification and
+workflow (including the <a href="#tokenization">Tokenization</a> recipe described
+above), fit the training data and generate predictions using 10-fold
+cross-validation, collect the results, and generate the following
+confusion matrix.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##           Truth
+## Prediction bad good
+##       bad  137   89
+##       good   0    0
+</code></pre></div></div>
+
+<p>As expected, all predictions use the majority class, <code class="language-plaintext highlighter-rouge">bad</code>, and the
+resulting accuracy is 60.8%. Note that only a single fold’s worth of
+predictions are included in this result. Using the same model to make
+predictions for all test data results in the following confusion matrix.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##           Truth
+## Prediction bad good
+##       bad  456  293
+##       good   0    0
+</code></pre></div></div>
+
+<p>Here again the accuracy is 60.9%. The train and test accuracy match in
+this case because the split was stratified on the response. The Null
+Model is more accurate than the proverbial coin flip (50%), providing a
+useful point of comparison for the other models.</p>
+
+<h3 id="method-1---naive-bayes">Method 1 - Naive Bayes</h3>
+
+<p>The first non-trivial model is a Naive Bayes classifier, which uses
+conditional probabilities to make predictions based on per-class
+statistics. This method is commonly used for text classification because
+it is fast, simple, and well-suited to sparse, high-dimensional data. I
+expect it to perform better than the baseline, but not as well as more
+sophisticated models to follow.</p>
+
+<p>The same method was used to train the model, generate predictions, and
+collect metrics. Here we generate a Receiver Operator Characteristics
+(ROC) curve based on the results of each cross-validation fold.</p>
+
+<p><img src="Project_files/figure-markdown_github/NB Model-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<p>This shows the true positive rate (aka recall, aka sensitivity) on the
+vertical axis vs. the false positive rate (aka 1 − specificity). While
+the end points are pinned at <code class="language-plaintext highlighter-rouge">[0, 0]</code> and <code class="language-plaintext highlighter-rouge">[1, 1]</code>, ideal curves are
+close to the top left, where true positives are common and false
+positives are rare. The area under the ROC curve, or ROC-AUC value, is a
+useful summary statistic. Values of ROC-AUC less than 0.5 perform worse
+than a random guess, and the max value is 1.0.</p>
+
+<p>The corresponding confusion matrix for a representative cv fold is given
+below. The average cross-validation accuracy is 74.0%.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##           Truth
+## Prediction bad good
+##       bad  124   48
+##       good  13   41
+</code></pre></div></div>
+
+<p>This is an improvement over the Null Model, but it is clearly better at
+predicting <code class="language-plaintext highlighter-rouge">bad</code> reviews than <code class="language-plaintext highlighter-rouge">good</code> ones. When used to generate
+predictions for all test data, the confusion matrix looks similar.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##           Truth
+## Prediction bad good
+##       bad  418  156
+##       good  38  137
+</code></pre></div></div>
+
+<p>As expected, the Naive Bayes model performs better than the baseline but
+there is still room for improvement. The test set accuracy of 74.1%
+suggests that we are not overfitting this model.</p>
+
+<h3 id="method-2---support-vector-machine">Method 2 - Support Vector Machine</h3>
+
+<p>The Support Vector Machine model is a significantly more sophisticated
+method. As discussed in class this semester, SVMs work by finding
+hyperplanes that optimize class boundaries. A radial basis function
+(RBF) kernel is used to allow for nonlinearity, where the hyperparameter
+<em>σ</em> controls model complexity.</p>
+
+<p>The processed used in this case is the same as above, with one notable
+addition. A range of values for <code class="language-plaintext highlighter-rouge">rbf_sigma</code> are tested using
+<code class="language-plaintext highlighter-rouge">grid_regular()</code> to find the optimal model. This results in 22,500
+predictions: 10 cross-validation folds x 10 levels for sigma x 2,250
+training observations. Unfortunately, the SVM solver does not return
+prediction probabilities that are required to build a ROC curve. The
+plot below shows accuracy, sensitivity, and specificity as a function of
+<em>σ</em>.</p>
+
+<p><img src="Project_files/figure-markdown_github/SVM Model-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<p>These curves can be used to select the best value of <code class="language-plaintext highlighter-rouge">rbf_sigma</code> for our
+purposes. The top three models, based on training accuracy, are given
+below.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># best accuracy for the training data</span><span class="w">
+</span><span class="n">show_best</span><span class="p">(</span><span class="n">svm_grid</span><span class="p">,</span><span class="w"> </span><span class="s2">"accuracy"</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 3 x 7
+##   rbf_sigma .metric  .estimator  mean     n  std_err .config              
+##       &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;                
+## 1   1       accuracy binary     0.867    10 0.00650  Preprocessor1_Model10
+## 2   0.0774  accuracy binary     0.606    10 0.0136   Preprocessor1_Model09
+## 3   0.00599 accuracy binary     0.393    10 0.000786 Preprocessor1_Model08
+</code></pre></div></div>
+
+<p>From this we see that mean accuracy is maximized when <em>σ</em> = 1.0.
+Honestly, this result seems fishy to me, but I was unable to find fault
+with the method. Using the optimal parameter value the model was fit
+using all training data and tthe following predictions were generated
+for the test set.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##           Truth
+## Prediction bad good
+##       bad  409   47
+##       good  47  246
+</code></pre></div></div>
+
+<p>This looks quite good. Accuracy is 87.4% and the positive and negative
+predictive value is more balanced. It is easy to see why SVMs are a
+go-to tool for natural language processing.</p>
+
+<h3 id="method-3---logistic-regression">Method 3 - Logistic Regression</h3>
+
+<p>The fourth and final method uses Logistic Regression with L1
+regularization (i.e. lasso) to control model complexity. A range of
+values are tested for the <code class="language-plaintext highlighter-rouge">penalty</code> parameter, adjusting the amount of
+regularization applied. The resulting ROC curve is plotted below.</p>
+
+<p><img src="Project_files/figure-markdown_github/LR Model-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<p>These curves bend closer to the top left corner than the Naive Bayes
+model, supporting our expectation that this is a better model. As with
+the SVM model, key metrics are plotted vs the hyperparameter of
+interest, and the top three models are listed by accuracy.</p>
+
+<p><img src="Project_files/figure-markdown_github/LR Stats-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 3 x 7
+##     penalty .metric  .estimator  mean     n std_err .config              
+##       &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+## 1 0.00599   accuracy binary     0.884    10 0.00534 Preprocessor1_Model08
+## 2 0.000464  accuracy binary     0.839    10 0.00800 Preprocessor1_Model07
+## 3 0.0000359 accuracy binary     0.804    10 0.00931 Preprocessor1_Model06
+</code></pre></div></div>
+
+<p>The top model listed, with accuracy 88.4, has a ROC AUC score of 0.94.
+Applying the optimal model to the test set yields the following
+confusion matrix.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##           Truth
+## Prediction bad good
+##       bad  417   52
+##       good  39  241
+</code></pre></div></div>
+
+<p>The final accuracy here is 87.9%, slightly better than what was obtained
+with the SVM model.</p>
+
+<h2 id="summarize-analysis">Summarize Analysis</h2>
+
+<p>Beginning with the trivial Null Model, the increasing complexity of each
+subsequent method resulted in improved results. The accuracy on training
+and test data is summarized below for all models.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##   Model TrnAcc TstAcc
+## 1  Null  60.80  60.90
+## 2    NB  74.00  74.10
+## 3   SVM  86.71  87.40
+## 4    LR  88.36  87.90
+</code></pre></div></div>
+
+<p>With its marginally improved accuracy and reasonably balanced positive /
+negative predictive power the Logistic Regression model seems the best
+choice in this exercise. My concerns about the SVM’s grid search results
+give me even more confidence in this choice.</p>
+
+<h3 id="further-exploration">Further Exploration</h3>
+
+<p>As a final step I adopted the following code from Julia Silge’s ACNH
+blog post. It uses the <code class="language-plaintext highlighter-rouge">vip</code> package to assess the relative importance
+of predictor variables. This provides valuable insights into both how
+the model works and the concepts that drive user sentiment about the
+game.</p>
+
+<p><img src="Project_files/figure-markdown_github/Plot Key Words-1.png" width="80%" style="display: block; margin: auto;" /></p>
+
+<p>From this we can see that bad reviews are driven by the words “greedy,”
+“copies,” and “second,” all of which relate to the outrage over game
+limitations we discussed before. On the other hand, good reviews focus
+on the game being “great,” “beautiful,” and “charming,” among other
+similarly positive descriptors.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Text sentiment analysis is a valuable tool with many applications. This
+project gave me a first taste of the process, methods, and tools. It is
+a deep, fast moving topic that draws from diverse knowledge areas,
+making it a challenge to master despite the intuitive concepts.</p>
+
+<p>Now that I have a broad understanding, future efforts to more deeply
+understand best practices for the front-end methods, including
+preprocessing, feature engineering, stop words, and tokenization, would
+likely yield the most dramatic improvements. Some specific improvements
+that I identified during this project include:</p>
+
+<ul>
+  <li>Make it multi-class with 3-5 classifications, e.g. good / ok / bad</li>
+  <li>Improve the quality of the data to minize / eliminate scraping
+errors</li>
+  <li>Experiment with different stop word lists, which tend to be domain
+specific</li>
+  <li>Experiment with the tokenizing approach, trying n-grams of various
+length</li>
+  <li>Use clustering and/or association rules to identify groups of words
+that relate to user sentiment</li>
+  <li>Expand the tuning grid parameters, including <code class="language-plaintext highlighter-rouge">max_tokens</code> and other
+preprocessing variables</li>
+  <li>Try neural net and/or deep neural net models, which are very popular
+for NLP</li>
+</ul>
+
+<p>In short, I’ve only scratched the surface of what is possible with this
+project. It has been a valuable effort and great capstone to the class.</p>
+
+<h1 id="references">References</h1>
+
+<p>Mäntylä, Mika V., et al. “The Evolution of Sentiment Analysis—A Review
+of Research Topics, Venues, and Top Cited Papers.” <em>Computer Science
+Review</em>, vol. 27, Feb. 2018, pp. 16–32,
+doi:<a href="https://doi.org/10.1016/j.cosrev.2017.10.002">10.1016/j.cosrev.2017.10.002</a>.</p>
+
+<p>Silge, Julia. <em>Supervised Machine Learning Case Studies in R! · A Free
+Interactive Course</em>. <a href="https://supervised-ml-course.netlify.app/">https://supervised-ml-course.netlify.app/</a>.
+Accessed 21 Oct. 2020.</p>
+
+<p>—. <em>Supervised Machine Learning for Text Analysis in R</em>.
+<a href="https://smltar.com/">https://smltar.com/</a>. Accessed 21 Oct. 2020.</p>
+
+<p>—. <em>Tidy Modeling with R</em>. <a href="https://www.tmwr.org/">https://www.tmwr.org/</a>. Accessed 21 Oct.
+2020.</p>
+
+<p>Silge, Julia, and Emil Hvitfeldt. <em>Predictive Modeling with Text Using
+Tidy Data Principles</em>.
+<a href="https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/">https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/</a>.
+Accessed 2 Dec. 2020.</p>
+
+<h1 id="appendix">Appendix</h1>
+
+<p>In addition to the links embedded in this document, I’ve included two
+files with my submission:</p>
+
+<ul>
+  <li>Project.Rmd - the R Markdown source for this document, which
+integrates the text, code, and plots in one source file</li>
+  <li>Project.R - the R code stripped out of the R Markdown file,
+automatically generated via <code class="language-plaintext highlighter-rouge">knitr::purl("Project.Rmd")</code></li>
+</ul>
