@@ -4,8 +4,10 @@ layout: post
 description: "Interpreting user reviews for Animal Crossing: New Horizons"
 categories: [R, portfolio]
 title: "Text Sentiment Analysis with R"
-image: images/recentreading.png
+image: images/acnh-cover.png
 ---
+<object width="100%" height="500px" data="https://docs.google.com/gview?embedded=true&url=https://olearydj.github.io/antisimplistic/docs/ProjectPresentation-shared.pdf"></object>
+
 # Introduction
 
 The goal of this project is to perform text sentiment analysis on a data
@@ -488,56 +490,17 @@ project. It has been a valuable effort and great capstone to the class.
 
 # References
 
-<div id="refs">
-
-<div id="ref-mantyla_evolution_2018">
-
-Mäntylä, Mika V., et al. “The Evolution of Sentiment Analysis—A Review
+1. Mäntylä, Mika V., et al. “The Evolution of Sentiment Analysis—A Review
 of Research Topics, Venues, and Top Cited Papers.” *Computer Science
 Review*, vol. 27, Feb. 2018, pp. 16–32,
 doi:[10.1016/j.cosrev.2017.10.002](https://doi.org/10.1016/j.cosrev.2017.10.002).
-
-</div>
-
-<div id="ref-silge_supervised_nodate">
-
-Silge, Julia. *Supervised Machine Learning Case Studies in R\! · A Free
+2. Silge, Julia. *Supervised Machine Learning Case Studies in R\! · A Free
 Interactive Course*. <https://supervised-ml-course.netlify.app/>.
 Accessed 21 Oct. 2020.
-
-</div>
-
-<div id="ref-silge_supervised_nodate-1">
-
-\---. *Supervised Machine Learning for Text Analysis in R*.
+3. ---. *Supervised Machine Learning for Text Analysis in R*.
 <https://smltar.com/>. Accessed 21 Oct. 2020.
-
-</div>
-
-<div id="ref-silge_tidy_nodate">
-
-\---. *Tidy Modeling with R*. <https://www.tmwr.org/>. Accessed 21 Oct.
-2020.
-
-</div>
-
-<div id="ref-silge_predictive_nodate">
-
-Silge, Julia, and Emil Hvitfeldt. *Predictive Modeling with Text Using
+4. ---. *Tidy Modeling with R*. <https://www.tmwr.org/>. Accessed 21 Oct. 2020.
+5. Silge, Julia, and Emil Hvitfeldt. *Predictive Modeling with Text Using
 Tidy Data Principles*.
 <https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/>.
 Accessed 2 Dec. 2020.
-
-</div>
-
-</div>
-
-# Appendix
-
-In addition to the links embedded in this document, I’ve included two
-files with my submission:
-
-  - Project.Rmd - the R Markdown source for this document, which
-    integrates the text, code, and plots in one source file
-  - Project.R - the R code stripped out of the R Markdown file,
-    automatically generated via `knitr::purl("Project.Rmd")`
