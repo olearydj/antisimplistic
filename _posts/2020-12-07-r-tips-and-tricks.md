@@ -19,21 +19,21 @@ Tips and Tricks:
 * [Convert your R Markdown file to a standard R file](https://bookdown.org/yihui/rmarkdown-cookbook/purl.html), automatically stripping out the prose and results with `knitr::purl(file.Rmd, documentation = 1)`. You can extract just the code, code and chunk headers (the default), or code with text chunks as roxygen comments with `documentation` parameters of 0, 1, and 2, respectively.
 * The opposite is also possible [using `spin` to convert R files into R Markdown](https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/). Here roxygen comments are used to add markdown (e.g. `#' this is *markdown*`) or code chunk options (e.g. `#+ load-libraries, include=FALSE`). For example, the following R file...
 
-``` r
-#' ## Initialize
-#' Load *required* packages
-#+ load-libraries, include=FALSE
-# Prepare for plotting
-library(ggplot2)
-```
+  ``` r
+  #' ## Initialize
+  #' Load *required* packages
+  #+ load-libraries, include=FALSE
+  # Prepare for plotting
+  library(ggplot2)
+  ```
 
-when processed with `knitr::spin(spin-me.R, knit = FALSE)` results in the following, saved as `spin-me.Rmd`...
+  when processed with `knitr::spin(spin-me.R, knit = FALSE)` results in the following, saved as `spin-me.Rmd`...
 
-``` r
-## Initialize
-Load *required* packages
+  ``` r
+  ## Initialize
+  Load *required* packages
 
-```{r load-libraries, include=FALSE}
-# Prepare for plotting
-library(ggplot2)
-```
+  ```{r load-libraries, include=FALSE}
+  # Prepare for plotting
+  library(ggplot2)
+  ```
