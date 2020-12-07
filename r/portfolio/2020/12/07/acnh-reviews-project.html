@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      19 min read
     
 </span></p>
 
@@ -119,45 +119,28 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#introduction">Introduction</a>
-<ul>
-<li class="toc-entry toc-h2"><a href="#literature-review">Literature Review</a></li>
-<li class="toc-entry toc-h2"><a href="#detailed-problem-description">Detailed Problem Description</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h1"><a href="#development">Development</a>
-<ul>
-<li class="toc-entry toc-h2"><a href="#data-prep-and-exploration">Data Prep and Exploration</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#review-bombing">Review Bombing</a></li>
-<li class="toc-entry toc-h3"><a href="#cleaning-and-feature-engineering">Cleaning and Feature Engineering</a></li>
-<li class="toc-entry toc-h3"><a href="#final-exploration">Final Exploration</a></li>
-<li class="toc-entry toc-h3"><a href="#train-test-split">Train-Test Split</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#experiments">Experiments</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#tokenization">Tokenization</a></li>
-<li class="toc-entry toc-h3"><a href="#method-0---null-model-baseline">Method 0 - Null Model Baseline</a></li>
-<li class="toc-entry toc-h3"><a href="#method-1---naive-bayes">Method 1 - Naive Bayes</a></li>
-<li class="toc-entry toc-h3"><a href="#method-2---support-vector-machine">Method 2 - Support Vector Machine</a></li>
-<li class="toc-entry toc-h3"><a href="#method-3---logistic-regression">Method 3 - Logistic Regression</a></li>
-</ul>
-</li>
-<li class="toc-entry toc-h2"><a href="#summarize-analysis">Summarize Analysis</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#further-exploration">Further Exploration</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a></li>
-<li class="toc-entry toc-h1"><a href="#references">References</a></li>
-</ul><object width="100%" height="500px" data="https://docs.google.com/gview?embedded=true&amp;url=https://olearydj.github.io/antisimplistic/docs/ProjectPresentation-shared.pdf"></object>
+    <h1 id="introduction">Introduction</h1>
 
-<h1 id="introduction">
-<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h1>
+<p>This semester I took INSY 7130 - Data Mining Techniques and Applications for Operations, one of four classes required for the <a href="http://www.eng.auburn.edu/program/modeling-and-data-analytics-for-operations-grad-cert.html">Modeling and Data Analytics for Operations graduate certificate</a> offered by the Department of Industrial and Systems Engineering at Auburn University. I would describe this course as an introductory survey of classic methods. A lot of focus was put on clustering, including hierarchical, k-means, fuzzy k-means, BIRCH, and Kohonen (self-organizing maps) algorithms. Support Vector Machines and Backpropagation Neural Networks were also covered, along with smoothing, time series, and association rules. Most concepts were covered in a single lecture, followed by a second workshop-styled session to demonstrate an R implementation.</p>
+
+<p>The semester project was very open-ended, allowing students to pick a topic of interest and apply suitable methods to explore and make inferences about the data. We were required to us at least one method from the class. I used the following criteria to guide my topic selection process:</p>
+
+<ul>
+  <li>Supervised learning using SVM and/or BPNN to meet the project requirement</li>
+  <li>Something with helpful tidyverse / tidymodels examples that I could use as a framework, allowing this project to also support my self-directed learning</li>
+  <li>Anything but tabular data!</li>
+  <li>Something fun and different</li>
+</ul>
+
+<p>I quickly focused my search on the <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> project archive and the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-05/readme.md"><em>Animal Crossing: New Horizons exercise</em></a>, for which <a href="https://juliasilge.com/blog/animal-crossing/">Julia Silge documented an excellent solution</a> that I would borrow heavily from. This ticked all the boxes.</p>
+
+<h1 id="tldr">TL;DR</h1>
+
+<p>The following slides summarize the project and were adapted from a shorter presentation that was given in class. The full report follows for those interested in more detail.</p>
+
+<object width="100%" height="500px" data="https://docs.google.com/gview?embedded=true&amp;url=https://olearydj.github.io/antisimplistic/docs/ProjectPresentation-shared.pdf"></object>
+
+<h1 id="project">Project</h1>
 
 <p>The goal of this project is to perform text sentiment analysis on a data
 set of user reviews for the Nintendo Switch game <em>Animal Crossing: New
@@ -165,7 +148,7 @@ Horizons</em> (ACNH), a “life simulation video game developed and published
 by Nintendo for the Nintendo Switch,”
 (<a href="https://en.wikipedia.org/wiki/Animal_Crossing:_New_Horizons">Wikipedia</a>).</p>
 
-<p><img src="/antisimplistic/images/acnh-screenshot.jpg" alt="*Animal Crossing: New Horizons* Screenshots"></p>
+<p><img src="/antisimplistic/images/acnh-screenshot.jpg" alt="*Animal Crossing: New Horizons* Screenshots" /></p>
 
 <p>From their starting point on a deserted island, ACNH players explore and
 customize their island, gather and craft items, and catch insects and
@@ -192,8 +175,7 @@ tractable, with 99% of related papers appearing after 2004. Since then,
 over 7,000 papers have been published on the topic, making it one of the
 fastest growing research areas in data science (Mäntylä et al.).</p>
 
-<h2 id="literature-review">
-<a class="anchor" href="#literature-review" aria-hidden="true"><span class="octicon octicon-link"></span></a>Literature Review</h2>
+<h2 id="literature-review">“Literature Review”</h2>
 
 <p>This project is based on a
 <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> exercise.
@@ -222,22 +204,17 @@ includes all code.</p>
 resources created by Ms. Silge and collaborators:</p>
 
 <ul>
-  <li>
-<a href="https://smltar.com">Supervised Machine Learning for Text Analysis in
+  <li><a href="https://smltar.com">Supervised Machine Learning for Text Analysis in
 R</a>, an online book authored in R Markdown</li>
-  <li>
-<a href="https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/#1">Predictive Modeling with Text Using Tidy Data
+  <li><a href="https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/#1">Predictive Modeling with Text Using Tidy Data
 Principles</a>,
 a tutorial presentation supporting the previous book</li>
-  <li>
-<a href="https://www.tmwr.org">Tidy Modeling in R</a>, another online book</li>
-  <li>
-<a href="https://supervised-ml-course.netlify.app">Supervised Machine Learning Case Studies in
+  <li><a href="https://www.tmwr.org">Tidy Modeling in R</a>, another online book</li>
+  <li><a href="https://supervised-ml-course.netlify.app">Supervised Machine Learning Case Studies in
 R</a>, a short online course</li>
 </ul>
 
-<h2 id="detailed-problem-description">
-<a class="anchor" href="#detailed-problem-description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Detailed Problem Description</h2>
+<h2 id="detailed-problem-description">Detailed Problem Description</h2>
 
 <p>The <code class="language-plaintext highlighter-rouge">user_review</code> data provided for this exercise was originally scraped
 from the popular meta-review site
@@ -263,8 +240,7 @@ The underlying assumption is that the score assigned by each user is
 consistent with the text of their review. The resulting model can be
 used to categorize user sentiment for unlabled review data.</p>
 
-<h1 id="development">
-<a class="anchor" href="#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h1>
+<h1 id="development">Development</h1>
 
 <p>A full end-to-end analysis follows, including:</p>
 
@@ -284,14 +260,13 @@ performance on test data</li>
 <p>Four different models are built and evaluated in this manner, as
 described in the <a href="#experiments">Experiments</a> section, below.</p>
 
-<h2 id="data-prep-and-exploration">
-<a class="anchor" href="#data-prep-and-exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Prep and Exploration</h2>
+<h2 id="data-prep-and-exploration">Data Prep and Exploration</h2>
 
 <p>Before any model is built it is important to explore the data set. I
 began by creating a histogram to visualize the distribution of user
 review scores.</p>
 
-<p><img src="/antisimplistic/images/acnh-plot-grade-dist.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-plot-grade-dist.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <p>It would be reasonable to expect a gaussian-like distribution here, with
 a rounded peak somewhere between 3 and 7, tailing off on either side.
@@ -300,8 +275,7 @@ shallow u-shaped distribution between. In the world of online reviews,
 especially for games, this sadly predictable behavior. Here some domain
 expertise is helpful…</p>
 
-<h3 id="review-bombing">
-<a class="anchor" href="#review-bombing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Review Bombing</h3>
+<h3 id="review-bombing">Review Bombing</h3>
 
 <p>Despite ACNH’s
 <a href="https://www.metacritic.com/game/switch/animal-crossing-new-horizons/critic-reviews">metacritic</a>
@@ -324,8 +298,7 @@ with the product or its vendor,”</em> -
 “haters” and “fanboys” have squared off to show their ire and support,
 respectively. This is something to keep in mind throughout the project.</p>
 
-<h3 id="cleaning-and-feature-engineering">
-<a class="anchor" href="#cleaning-and-feature-engineering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning and Feature Engineering</h3>
+<h3 id="cleaning-and-feature-engineering">Cleaning and Feature Engineering</h3>
 
 <p>For the purposes of this project it is also important to have a good
 sense of what is found in the review text field. Samples of review text
@@ -343,8 +316,7 @@ on the average user review of 5.5, but it also seems natural. The
 remaining cleanup of text data is done as part of the
 <a href="#tokenization">Tokenization</a> process, described below.</p>
 
-<h3 id="final-exploration">
-<a class="anchor" href="#final-exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final Exploration</h3>
+<h3 id="final-exploration">Final Exploration</h3>
 
 <p>Two final plots were created to complete my exploration. First, the
 number of words per review was visualized using a histogram. The
@@ -360,10 +332,9 @@ with more extreme reviews, which seems to follow my intuition that
 reviewers scoring the game very high or very low are more prone to
 support their scores with extended rants / raves.</p>
 
-<p><img src="/antisimplistic/images/acnh-final-plots.png" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-final-plots.png" style="display: block; margin: auto;" /></p>
 
-<h3 id="train-test-split">
-<a class="anchor" href="#train-test-split" aria-hidden="true"><span class="octicon octicon-link"></span></a>Train-Test Split</h3>
+<h3 id="train-test-split">Train-Test Split</h3>
 
 <p>Lastly, the data was split into training and testing sets using the
 customary 75/25 split. Training data will be used to fit the model and
@@ -380,8 +351,7 @@ below.</p>
 ## 4   good   293   39.12   test
 </code></pre></div></div>
 
-<h2 id="experiments">
-<a class="anchor" href="#experiments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Experiments</h2>
+<h2 id="experiments">Experiments</h2>
 
 <p>Null, Naive Bayes, Support Vector Machine, and Logistic (Lasso)
 Regression models are built and evaluated on both training and test
@@ -390,8 +360,7 @@ The others were chosen for their performance on sparse data, a key
 characteristic of natural language problems that results from
 tokenization of the input data.</p>
 
-<h3 id="tokenization">
-<a class="anchor" href="#tokenization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tokenization</h3>
+<h3 id="tokenization">Tokenization</h3>
 
 <p>Tokenization is the process of converting the input text data into a
 format suitable for training ML algorithms. While many approaches are
@@ -433,8 +402,7 @@ and “accounts”.</p>
 ## 1    bad        -0.1447401         -0.2129978          -0.1330606
 </code></pre></div></div>
 
-<h3 id="method-0---null-model-baseline">
-<a class="anchor" href="#method-0---null-model-baseline" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method 0 - Null Model Baseline</h3>
+<h3 id="method-0---null-model-baseline">Method 0 - Null Model Baseline</h3>
 
 <p>To establish a performance baseline, a Null Model was first constructed.
 This trivial case predicts the majority class for all observations.
@@ -469,8 +437,7 @@ this case because the split was stratified on the response. The Null
 Model is more accurate than the proverbial coin flip (50%), providing a
 useful point of comparison for the other models.</p>
 
-<h3 id="method-1---naive-bayes">
-<a class="anchor" href="#method-1---naive-bayes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method 1 - Naive Bayes</h3>
+<h3 id="method-1---naive-bayes">Method 1 - Naive Bayes</h3>
 
 <p>The first non-trivial model is a Naive Bayes classifier, which uses
 conditional probabilities to make predictions based on per-class
@@ -483,7 +450,7 @@ sophisticated models to follow.</p>
 collect metrics. Here we generate a Receiver Operator Characteristics
 (ROC) curve based on the results of each cross-validation fold.</p>
 
-<p><img src="/antisimplistic/images/acnh-nb-model.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-nb-model.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <p>This shows the true positive rate (aka recall, aka sensitivity) on the
 vertical axis vs. the false positive rate (aka
@@ -517,8 +484,7 @@ predictions for all test data, the confusion matrix looks similar.</p>
 there is still room for improvement. The test set accuracy of 74.1%
 suggests that we are not overfitting this model.</p>
 
-<h3 id="method-2---support-vector-machine">
-<a class="anchor" href="#method-2---support-vector-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method 2 - Support Vector Machine</h3>
+<h3 id="method-2---support-vector-machine">Method 2 - Support Vector Machine</h3>
 
 <p>The Support Vector Machine model is a significantly more sophisticated
 method. As discussed in class this semester, SVMs work by finding
@@ -535,7 +501,7 @@ prediction probabilities that are required to build a ROC curve. The
 plot below shows accuracy, sensitivity, and specificity as a function of
 (\sigma).</p>
 
-<p><img src="/antisimplistic/images/acnh-svm-model.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-svm-model.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <p>These curves can be used to select the best value of <code class="language-plaintext highlighter-rouge">rbf_sigma</code> for our
 purposes. The top three models, based on training accuracy, are given
@@ -569,22 +535,21 @@ for the test set.</p>
 predictive value is more balanced. It is easy to see why SVMs are a
 go-to tool for natural language processing.</p>
 
-<h3 id="method-3---logistic-regression">
-<a class="anchor" href="#method-3---logistic-regression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method 3 - Logistic Regression</h3>
+<h3 id="method-3---logistic-regression">Method 3 - Logistic Regression</h3>
 
 <p>The fourth and final method uses Logistic Regression with L1
 regularization (i.e. lasso) to control model complexity. A range of
 values are tested for the <code class="language-plaintext highlighter-rouge">penalty</code> parameter, adjusting the amount of
 regularization applied. The resulting ROC curve is plotted below.</p>
 
-<p><img src="/antisimplistic/images/acnh-lr-model.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-lr-model.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <p>These curves bend closer to the top left corner than the Naive Bayes
 model, supporting our expectation that this is a better model. As with
 the SVM model, key metrics are plotted vs the hyperparameter of
 interest, and the top three models are listed by accuracy.</p>
 
-<p><img src="/antisimplistic/images/acnh-lr-stats.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-lr-stats.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>## # A tibble: 3 x 7
 ##     penalty .metric  .estimator  mean     n std_err .config              
@@ -607,8 +572,7 @@ confusion matrix.</p>
 <p>The final accuracy here is 87.9%, slightly better than what was obtained
 with the SVM model.</p>
 
-<h2 id="summarize-analysis">
-<a class="anchor" href="#summarize-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summarize Analysis</h2>
+<h2 id="summarize-analysis">Summarize Analysis</h2>
 
 <p>Beginning with the trivial Null Model, the increasing complexity of each
 subsequent method resulted in improved results. The accuracy on training
@@ -626,8 +590,7 @@ negative predictive power the Logistic Regression model seems the best
 choice in this exercise. My concerns about the SVM’s grid search results
 give me even more confidence in this choice.</p>
 
-<h3 id="further-exploration">
-<a class="anchor" href="#further-exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Further Exploration</h3>
+<h3 id="further-exploration">Further Exploration</h3>
 
 <p>As a final step I adopted the following code from Julia Silge’s ACNH
 blog post. It uses the <code class="language-plaintext highlighter-rouge">vip</code> package to assess the relative importance
@@ -635,7 +598,7 @@ of predictor variables. This provides valuable insights into both how
 the model works and the concepts that drive user sentiment about the
 game.</p>
 
-<p><img src="/antisimplistic/images/acnh-plot-key-words.png" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="/antisimplistic/images/acnh-plot-key-words.png" width="80%" style="display: block; margin: auto;" /></p>
 
 <p>From this we can see that bad reviews are driven by the words “greedy,”
 “copies,” and “second,” all of which relate to the outrage over game
@@ -643,8 +606,7 @@ limitations we discussed before. On the other hand, good reviews focus
 on the game being “great,” “beautiful,” and “charming,” among other
 similarly positive descriptors.</p>
 
-<h1 id="conclusion">
-<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h1>
+<h1 id="conclusion">Conclusion</h1>
 
 <p>Text sentiment analysis is a valuable tool with many applications. This
 project gave me a first taste of the process, methods, and tools. It is
@@ -676,8 +638,7 @@ for NLP</li>
 <p>In short, I’ve only scratched the surface of what is possible with this
 project. It has been a valuable effort and great capstone to the class.</p>
 
-<h1 id="references">
-<a class="anchor" href="#references" aria-hidden="true"><span class="octicon octicon-link"></span></a>References</h1>
+<h1 id="references">References</h1>
 
 <ol>
   <li>Mäntylä, Mika V., et al. “The Evolution of Sentiment Analysis—A Review
