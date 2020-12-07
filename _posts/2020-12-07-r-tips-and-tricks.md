@@ -10,11 +10,15 @@ comments: true
 
 I recently completed a data mining course using [R Notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html) for all my assignments. This approach allowed me to combine my prose, code, results, and supporting materials into a single file and render the resulting report directly to PDF.
 
+> Tip: This is my tip
+
 {% include alert.html text="I started rendering to DOC, which I then converted to PDFs. Spare yourself the pain! Going direct to PDF was as easy as installing TinyTeX." %}
 
 [installing TinyTeX](https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html)
 
 Much like Jupyter Notebooks, the R Notebook format is made up of cells that contain text or code. Text is formatted using [R Markdown](https://rmarkdown.rstudio.com) and the attributes of code cells are managed with
+
+
 
 ## Tips and Tricks
 
@@ -42,3 +46,9 @@ Load *required* packages
 # Prepare for plotting
 library(ggplot2)
 ```
+
+## Twitter
+
+I found several of these on [Brendan Cullen's](https://twitter.com/_bcullen) recent twitter thread:
+
+<center>{% twitter https://twitter.com/_bcullen/status/1333878752741191680 %}</center>
