@@ -1,12 +1,11 @@
 ---
 toc: true
-kramdown:
-  toc_levels: "1,2"
 layout: post
-description: "Interpreting user reviews for Animal Crossing: New Horizons"
+description: "Interpreting user sentiment in Animal Crossing: New Horizons user reviews with tidyverse / tidymodels methods. INSY 7130 Semester Project, Fall 2020."
 categories: [R, portfolio]
 title: "Text Sentiment Analysis with R"
 image: images/acnh-cover.png
+comments: true
 ---
 # Introduction
 
