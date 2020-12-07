@@ -1,14 +1,33 @@
 ---
-toc: true
+toc:
+  min_level: 1
+  max_level: 2
 layout: post
 description: "Interpreting user reviews for Animal Crossing: New Horizons"
 categories: [R, portfolio]
 title: "Text Sentiment Analysis with R"
 image: images/acnh-cover.png
 ---
+# Introduction
+
+This semester I took INSY 7130 - Data Mining Techniques and Applications for Operations, one of four classes required for the [Modeling and Data Analytics for Operations graduate certificate](http://www.eng.auburn.edu/program/modeling-and-data-analytics-for-operations-grad-cert.html) offered by the Department of Industrial and Systems Engineering at Auburn University. I would describe this course as an introductory survey of classic methods. A lot of focus was put on clustering, including hierarchical, k-means, fuzzy k-means, BIRCH, and Kohonen (self-organizing maps) algorithms. Support Vector Machines and Backpropagation Neural Networks were also covered, along with smoothing, time series, and association rules. Most concepts were covered in a single lecture, followed by a second workshop-styled session to demonstrate an R implementation.
+
+The semester project was very open-ended, allowing students to pick a topic of interest and apply suitable methods to explore and make inferences about the data. We were required to us at least one method from the class. I used the following criteria to guide my topic selection process:
+
+* Supervised learning using SVM and/or BPNN to meet the project requirement
+* Something with helpful tidyverse / tidymodels examples that I could use as a framework, allowing this project to also support my self-directed learning
+* Anything but tabular data!
+* Something fun and different
+
+I quickly focused my search on the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) project archive and the [*Animal Crossing: New Horizons exercise*](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-05/readme.md), for which [Julia Silge documented an excellent solution](https://juliasilge.com/blog/animal-crossing/) that I would borrow heavily from. This ticked all the boxes.
+
+# TL;DR
+
+The following slides summarize the project and were adapted from a shorter presentation that was given in class. The full report follows for those interested in more detail.
+
 <object width="100%" height="500px" data="https://docs.google.com/gview?embedded=true&url=https://olearydj.github.io/antisimplistic/docs/ProjectPresentation-shared.pdf"></object>
 
-# Introduction
+# Project
 
 The goal of this project is to perform text sentiment analysis on a data
 set of user reviews for the Nintendo Switch game *Animal Crossing: New
@@ -43,7 +62,7 @@ tractable, with 99% of related papers appearing after 2004. Since then,
 over 7,000 papers have been published on the topic, making it one of the
 fastest growing research areas in data science (Mäntylä et al.).
 
-## Literature Review
+## "Literature Review"
 
 This project is based on a
 [TidyTuesday](https://github.com/rfordatascience/tidytuesday) exercise.
