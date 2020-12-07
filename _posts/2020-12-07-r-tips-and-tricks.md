@@ -16,26 +16,29 @@ I recently completed a data mining course using [R Notebooks](https://bookdown.o
 
 Much like Jupyter Notebooks, the R Notebook format is made up of cells that contain text or code. Text is formatted using [R Markdown](https://rmarkdown.rstudio.com) and the attributes of code cells are managed with
 
-Tips and Tricks:
-* The keyboard shortcut for inserting an R code chunk is `Cmd + Option + I` on Mac (`Ctrl + Alt + I` on Windows). This will insert a new chunk at the cursor position _or_ :boom: **split the current chunk**! :boom: :astonished:
-* [Convert your R Markdown file to a standard R file](https://bookdown.org/yihui/rmarkdown-cookbook/purl.html), automatically stripping out the prose and results with `knitr::purl(file.Rmd, documentation = 1)`. You can extract just the code, code and chunk headers (the default), or code with text chunks as roxygen comments with `documentation` parameters of 0, 1, and 2, respectively.
-* The opposite is also possible [using `spin` to convert R files into R Markdown](https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/). Here roxygen comments are used to add markdown (e.g. `#' this is *markdown*`) or code chunk options (e.g. `#+ load-libraries, include=FALSE`). For example, given the following R file with a mix of comment styles:
+## Tips and Tricks
 
-  ``` r
-  #' ## Initialize
-  #' Load *required* packages
-  #+ load-libraries, include=FALSE
-  # Prepare for plotting
-  library(ggplot2)
-  ```
+The keyboard shortcut for inserting an R code chunk is `Cmd + Option + I` on Mac (`Ctrl + Alt + I` on Windows). This will insert a new chunk at the cursor position _or_ :boom: **split the current chunk**! :boom: :astonished:
 
-  `knitr::spin(spin-me.R, knit = FALSE)` results in the file `spin-me.Rmd`, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named `load-libraries` with suppressed output and a comment:
+[Convert your R Markdown file to a standard R file](https://bookdown.org/yihui/rmarkdown-cookbook/purl.html), automatically stripping out the prose and results with `knitr::purl(file.Rmd, documentation = 1)`. You can extract just the code, code and chunk headers (the default), or code with text chunks as roxygen comments with `documentation` parameters of 0, 1, and 2, respectively.
 
-  ``` r
-  ## Initialize
-  Load *required* packages
+The opposite is also possible [using `spin` to convert R files into R Markdown](https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/). Here roxygen comments are used to add markdown (e.g. `#' this is *markdown*`) or code chunk options (e.g. `#+ load-libraries, include=FALSE`). For example, given the following R file with a mix of comment styles:
 
-  ```{r load-libraries, include=FALSE}
-  # Prepare for plotting
-  library(ggplot2)
-  ```
+``` r
+#' ## Initialize
+#' Load *required* packages
+#+ load-libraries, include=FALSE
+# Prepare for plotting
+library(ggplot2)
+```
+
+`knitr::spin(spin-me.R, knit = FALSE)` results in the file `spin-me.Rmd`, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named `load-libraries` with suppressed output and a comment:
+
+``` r
+## Initialize
+Load *required* packages
+
+```{r load-libraries, include=FALSE}
+# Prepare for plotting
+library(ggplot2)
+```
