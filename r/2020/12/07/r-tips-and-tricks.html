@@ -128,8 +128,10 @@ window.onload = wrap_img;
 
 <div class="Toast Toast--warning googoo">
    <span class="Toast-icon"><svg class="octicon octicon-alert octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg></span>
-   <span class="Toast-content">I started rendering to DOC, which I then converted to PDFs. Spare yourself the pain! Going direct to PDF was as easy as [installing TinyTeX](https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html).</span>
+   <span class="Toast-content">I started rendering to DOC, which I then converted to PDFs. Spare yourself the pain! Going direct to PDF was as easy as installing TinyTeX.</span>
 </div>
+
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html">installing TinyTeX</a></p>
 
 <p>Much like Jupyter Notebooks, the R Notebook format is made up of cells that contain text or code. Text is formatted using <a href="https://rmarkdown.rstudio.com">R Markdown</a> and the attributes of code cells are managed with</p>
 
@@ -140,7 +142,7 @@ window.onload = wrap_img;
   <li>
 <a href="https://bookdown.org/yihui/rmarkdown-cookbook/purl.html">Convert your R Markdown file to a standard R file</a>, automatically stripping out the prose and results with <code class="language-plaintext highlighter-rouge">knitr::purl(file.Rmd, documentation = 1)</code>. You can extract just the code, code and chunk headers (the default), or code with text chunks as roxygen comments with <code class="language-plaintext highlighter-rouge">documentation</code> parameters of 0, 1, and 2, respectively.</li>
   <li>
-    <p>The opposite is also possible <a href="https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/">using <code class="language-plaintext highlighter-rouge">spin</code> to convert R files into R Markdown</a>. Here roxygen comments are used to add markdown (e.g. <code class="language-plaintext highlighter-rouge">#' this is *markdown*</code>) or code chunk options (e.g. <code class="language-plaintext highlighter-rouge">#+ load-libraries, include=FALSE</code>). For example, the following R file…</p>
+    <p>The opposite is also possible <a href="https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/">using <code class="language-plaintext highlighter-rouge">spin</code> to convert R files into R Markdown</a>. Here roxygen comments are used to add markdown (e.g. <code class="language-plaintext highlighter-rouge">#' this is *markdown*</code>) or code chunk options (e.g. <code class="language-plaintext highlighter-rouge">#+ load-libraries, include=FALSE</code>). For example, given the following R file with a mix of comment styles:</p>
 
     <div class="language-r highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="cd">#' ## Initialize</span><span class="w">
@@ -150,7 +152,7 @@ window.onload = wrap_img;
 </span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
 </span></code></pre></div>    </div>
 
-    <p>when processed with <code class="language-plaintext highlighter-rouge">knitr::spin(spin-me.R, knit = FALSE)</code> results in the following, saved as <code class="language-plaintext highlighter-rouge">spin-me.Rmd</code>…</p>
+    <p><code class="language-plaintext highlighter-rouge">knitr::spin(spin-me.R, knit = FALSE)</code> results in the file <code class="language-plaintext highlighter-rouge">spin-me.Rmd</code>, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named <code class="language-plaintext highlighter-rouge">load-libraries</code> with suppressed output and a comment:</p>
 
     <div class="language-r highlighter-rouge">
 <div class="highlight"><pre class="highlight"><code><span class="c1">## Initialize</span><span class="w">
