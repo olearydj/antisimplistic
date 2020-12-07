@@ -1,7 +1,7 @@
 ---
-toc:
-  min_level: 1
-  max_level: 2
+toc: true
+kramdown:
+  toc_levels: "1,2"
 layout: post
 description: "Interpreting user reviews for Animal Crossing: New Horizons"
 categories: [R, portfolio]
@@ -19,7 +19,7 @@ The semester project was very open-ended, allowing students to pick a topic of i
 * Anything but tabular data!
 * Something fun and different
 
-I quickly focused my search on the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) project archive and the [*Animal Crossing: New Horizons exercise*](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-05/readme.md), for which [Julia Silge documented an excellent solution](https://juliasilge.com/blog/animal-crossing/) that I would borrow heavily from. This ticked all the boxes.
+I quickly focused my search on the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) project archive and the [*Animal Crossing: New Horizons* exercise](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-05-05/readme.md), for which [Julia Silge documented an excellent solution](https://juliasilge.com/blog/animal-crossing/) that I could borrow heavily from. This ticked all the boxes.
 
 # TL;DR
 
@@ -509,17 +509,8 @@ project. It has been a valuable effort and great capstone to the class.
 
 # References
 
-1. Mäntylä, Mika V., et al. “The Evolution of Sentiment Analysis—A Review
-of Research Topics, Venues, and Top Cited Papers.” *Computer Science
-Review*, vol. 27, Feb. 2018, pp. 16–32,
-doi:[10.1016/j.cosrev.2017.10.002](https://doi.org/10.1016/j.cosrev.2017.10.002).
-2. Silge, Julia. *Supervised Machine Learning Case Studies in R\! · A Free
-Interactive Course*. <https://supervised-ml-course.netlify.app/>.
-Accessed 21 Oct. 2020.
-3. ---. *Supervised Machine Learning for Text Analysis in R*.
-<https://smltar.com/>. Accessed 21 Oct. 2020.
+1. Mäntylä, Mika V., et al. “The Evolution of Sentiment Analysis—A Review of Research Topics, Venues, and Top Cited Papers.” *Computer Science Review*, vol. 27, Feb. 2018, pp. 16–32, doi:[10.1016/j.cosrev.2017.10.002](https://doi.org/10.1016/j.cosrev.2017.10.002).
+2. Silge, Julia. *Supervised Machine Learning Case Studies in R\! · A Free Interactive Course*. <https://supervised-ml-course.netlify.app/>. Accessed 21 Oct. 2020.
+3. ---. *Supervised Machine Learning for Text Analysis in R*. <https://smltar.com/>. Accessed 21 Oct. 2020.
 4. ---. *Tidy Modeling with R*. <https://www.tmwr.org/>. Accessed 21 Oct. 2020.
-5. Silge, Julia, and Emil Hvitfeldt. *Predictive Modeling with Text Using
-Tidy Data Principles*.
-<https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/>.
-Accessed 2 Dec. 2020.
+5. Silge, Julia, and Emil Hvitfeldt. *Predictive Modeling with Text Using Tidy Data Principles*. <https://emilhvitfeldt.github.io/useR2020-text-modeling-tutorial/>. Accessed 2 Dec. 2020.
