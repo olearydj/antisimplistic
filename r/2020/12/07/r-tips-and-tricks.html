@@ -139,33 +139,25 @@ window.onload = wrap_img;
 </li>
   <li>
 <a href="https://bookdown.org/yihui/rmarkdown-cookbook/purl.html">Convert your R Markdown file to a standard R file</a>, automatically stripping out the prose and results with <code class="language-plaintext highlighter-rouge">knitr::purl(file.Rmd, documentation = 1)</code>. You can extract just the code, code and chunk headers (the default), or code with text chunks as roxygen comments with <code class="language-plaintext highlighter-rouge">documentation</code> parameters of 0, 1, and 2, respectively.</li>
-  <li>
-    <p>The opposite is also possible <a href="https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/">using <code class="language-plaintext highlighter-rouge">spin</code> to convert R files into R Markdown</a>. Here roxygen comments are used to add markdown (e.g. <code class="language-plaintext highlighter-rouge">#' this is *markdown*</code>) or code chunk options (e.g. <code class="language-plaintext highlighter-rouge">#+ load-libraries, include=FALSE</code>). For example, the following R file…</p>
-
-    <div class="language-plaintext highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>``` r
-#' ## Initialize
-#' Load *required* packages
-#+ load-libraries, include=FALSE
-# Prepare for plotting
-library(ggplot2)
-```
-</code></pre></div>    </div>
-
-    <p>when processed with <code class="language-plaintext highlighter-rouge">knitr::spin(spin-me.R, knit = FALSE)</code> results in the following, saved as <code class="language-plaintext highlighter-rouge">spin-me.Rmd</code>…</p>
-
-    <div class="language-plaintext highlighter-rouge">
-<div class="highlight"><pre class="highlight"><code>``` r
-## Initialize
-Load *required* packages
-
-```{r load-libraries, include=FALSE}
-# Prepare for plotting
-library(ggplot2)
-```
-</code></pre></div>    </div>
-  </li>
+  <li>The opposite is also possible <a href="https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/">using <code class="language-plaintext highlighter-rouge">spin</code> to convert R files into R Markdown</a>. Here roxygen comments are used to add markdown (e.g. <code class="language-plaintext highlighter-rouge">#' this is *markdown*</code>) or code chunk options (e.g. <code class="language-plaintext highlighter-rouge">#+ load-libraries, include=FALSE</code>). For example, the following R file…</li>
 </ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cd">#' ## Initialize</span><span class="w">
+</span><span class="cd">#' Load *required* packages</span><span class="w">
+</span><span class="c1">#+ load-libraries, include=FALSE</span><span class="w">
+</span><span class="c1"># Prepare for plotting</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>when processed with <code class="language-plaintext highlighter-rouge">knitr::spin(spin-me.R, knit = FALSE)</code> results in the following, saved as <code class="language-plaintext highlighter-rouge">spin-me.Rmd</code>…</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Initialize</span><span class="w">
+</span><span class="n">Load</span><span class="w"> </span><span class="o">*</span><span class="n">required</span><span class="o">*</span><span class="w"> </span><span class="n">packages</span><span class="w">
+
+</span><span class="err">```</span><span class="p">{</span><span class="n">r</span><span class="w"> </span><span class="n">load</span><span class="o">-</span><span class="n">libraries</span><span class="p">,</span><span class="w"> </span><span class="n">include</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">}</span><span class="w">
+</span><span class="c1"># Prepare for plotting</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
   </div>
 <!-- from https://github.com/utterance/utterances -->
