@@ -121,8 +121,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#what-is-r-markdown">What is R Markdown?</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#r-markdown-syntax">R Markdown Syntax</a></li>
+<li class="toc-entry toc-h3"><a href="#sample-rmd-and-output">Sample .Rmd and Output</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#talk-about-the-process">Talk About the Process</a></li>
+<li class="toc-entry toc-h2"><a href="#more-details">More Details</a></li>
+<li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a></li>
 </ul><p>I recently completed a course that used R for various statistical and machine learning methods. In a separate article I have discussed the course and my semester project, <a href="https://bit.ly/asb-7130-acnw-project">Text Sentiment Analysis with R</a>. Another is coming soon with R Markdown tips and tricks I learned along the way. But first some background is in order…</p>
 
 <h2 id="a-case-for-reproducible-workflows">
@@ -155,6 +159,9 @@ window.onload = wrap_img;
 </ul>
 
 <p>Rmd also allows users to embed code expressions in the prose by enclosing them in single backticks.</p>
+
+<h3 id="sample-rmd-and-output">
+<a class="anchor" href="#sample-rmd-and-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample <code class="language-plaintext highlighter-rouge">.Rmd</code> and Output</h3>
 
 <p>A minimal <code class="language-plaintext highlighter-rouge">.Rmd</code> example is included below. This is based on the <a href="https://bookdown.org/yihui/rmarkdown/basics.html">Xie’s sample</a>, which I’ve modified to demonstrate all of the elements mentioned above.</p>
 
@@ -194,13 +201,30 @@ window.onload = wrap_img;
 
 <p>Rendering this to HTML via the Preview button results in the following:</p>
 
+<p>TRYING IT IN HTML…</p>
+
+<p>&lt;img src=/antisimplistic”/images/rmd-minimal.png” alt=”Minimal R Markdown Example - HTML Output” width=”600”/&gt;</p>
+
+<p>TRIED IT IN MARKDOWN… (no worky)</p>
+
 <p><img src="/antisimplistic/images/rmd-minimal.png%20=600x" alt="Minimal R Markdown Example - HTML Output"></p>
+
+<h2 id="talk-about-the-process">
+<a class="anchor" href="#talk-about-the-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Talk About the Process</h2>
+
+<h2 id="more-details">
+<a class="anchor" href="#more-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Details</h2>
 
 <p>Note that YAML is <em>sensitive to white space</em>, which is part of the syntax, and <em>doesn’t allow tabs</em>. You can mostly learn this as you need it, referring to <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">this description by Xie</a>, or <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html">the YAML and output related sections of this article</a>.</p>
 
 <p><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc flavor</a></p>
 
 <p>Code output is controlled by options set in each chunk’s header.</p>
+
+<h1 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h1>
+
+<p>Markdown and YAML both useful skills, easy to get a handle on, with a few quirks. Learn as you need it.</p>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
