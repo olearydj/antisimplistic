@@ -6,15 +6,18 @@ categories: [R]
 title: "Recent R Learnings"
 image: images/recentreading.png
 comments: true
+hide: true
 ---
 
-I recently completed a data mining course using [R Notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html) for all my assignments. This approach allowed me to combine my prose, code, results, and supporting materials into a single file and render the resulting report directly to PDF.
+I recently completed a course that used R for various statistical and machine learning methods. In separate articles I discussed the course and my semester project, [Text Sentiment Analysis with R](https://bit.ly/asb-7130-acnw-project), and provided an introduction to R Markdown.
+
+Here I'll focus on how I used R Studio's [markdown-based publication tools](https://rmarkdown.rstudio.com) to integrate my analysis and documentation efforts and render the final results in a variety of formats.
+
+# Course Application
+
+Throughout the course I used [R Notebooks](https://bookdown.org/yihui/rmarkdown/notebook.html) to combine my prose, code, results, and supporting materials into a single file and render the resulting report directly to PDF.
 
 > I started rendering to DOC, which I then converted to PDFs. Spare yourself the pain! Going direct to PDF was as easy as [installing TinyTeX](https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html).
-
-Much like Jupyter Notebooks, the R Notebook format is made up of cells that contain text or code. Text is formatted using [R Markdown](https://rmarkdown.rstudio.com) and the attributes of code cells are managed with
-
-
 
 ### Tips and Tricks
 
@@ -31,24 +34,23 @@ The opposite is also possible [using `spin` to convert R files into R Markdown](
 ``` r
 #' ## Initialize
 #' *Fun* with `mtcars`!
-#+ summary-stats
+#+ summary-stats, echo=FALSE
 # Summarize mpg
 summary(mtcars$mpg)
 ```
 
-`knitr::spin("spin-me.R", knit = FALSE)` results in the file `spin-me.Rmd`, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named `load-libraries` that includes a comment:
+`knitr::spin("spin-me.R", knit = FALSE)` results in the file `spin-me.Rmd`, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named `summary-stats` with `echo=FALSE` that includes a comment:
 
 ``` r
 ## Initialize
 *Fun* with `mtcars`!
 
-```{r summary-stats}
+```{r summary-stats, echo=FALSE}
 # Summarize mpg
 summary(mtcars$mpg)
 ```
 
-If you are only interested in publishing your R files, simply omit the `knit = FALSE` parameter from `spin` to go to the final rendered output, e.g. md, pdf, etc.
-
+If you are only interested in publishing your R files, simply omit the `knit = FALSE` parameter from `spin` to go directly to the final rendered output, e.g. md, pdf, etc.
 
 ## Twitter
 
