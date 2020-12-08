@@ -10,14 +10,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="cool stuff I recently learned about R" />
 <meta property="og:description" content="cool stuff I recently learned about R" />
-<link rel="canonical" href="https://olearydj.github.io/antisimplistic/r/2020/12/07/r-tips-and-tricks.html" />
-<meta property="og:url" content="https://olearydj.github.io/antisimplistic/r/2020/12/07/r-tips-and-tricks.html" />
+<link rel="canonical" href="https://olearydj.github.io/antisimplistic/r/2020/12/08/r-tips-and-tricks.html" />
+<meta property="og:url" content="https://olearydj.github.io/antisimplistic/r/2020/12/08/r-tips-and-tricks.html" />
 <meta property="og:site_name" content="Antisimplistic" />
 <meta property="og:image" content="https://olearydj.github.io/antisimplistic/images/recentreading.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-12-07T00:00:00-06:00" />
+<meta property="article:published_time" content="2020-12-08T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"cool stuff I recently learned about R","url":"https://olearydj.github.io/antisimplistic/r/2020/12/07/r-tips-and-tricks.html","@type":"BlogPosting","headline":"Recent R Learnings","dateModified":"2020-12-07T00:00:00-06:00","datePublished":"2020-12-07T00:00:00-06:00","image":"https://olearydj.github.io/antisimplistic/images/recentreading.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://olearydj.github.io/antisimplistic/r/2020/12/07/r-tips-and-tricks.html"},"@context":"https://schema.org"}</script>
+{"description":"cool stuff I recently learned about R","url":"https://olearydj.github.io/antisimplistic/r/2020/12/08/r-tips-and-tricks.html","@type":"BlogPosting","headline":"Recent R Learnings","dateModified":"2020-12-08T00:00:00-06:00","datePublished":"2020-12-08T00:00:00-06:00","image":"https://olearydj.github.io/antisimplistic/images/recentreading.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://olearydj.github.io/antisimplistic/r/2020/12/08/r-tips-and-tricks.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/antisimplistic/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://olearydj.github.io/antisimplistic/feed.xml" title="Antisimplistic" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -100,8 +100,8 @@ window.onload = wrap_img;
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Recent R Learnings</h1>
 <p class="page-description">cool stuff I recently learned about R</p>
-<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-07T00:00:00-06:00" itemprop="datePublished">
-        Dec 7, 2020
+<p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-08T00:00:00-06:00" itemprop="datePublished">
+        Dec 8, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -123,16 +123,26 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h1">
+<a href="#course-application">Course Application</a>
+<ul>
 <li class="toc-entry toc-h3"><a href="#tips-and-tricks">Tips and Tricks</a></li>
 <li class="toc-entry toc-h2"><a href="#twitter">Twitter</a></li>
 </ul>
-<p>I recently completed a data mining course using <a href="https://bookdown.org/yihui/rmarkdown/notebook.html">R Notebooks</a> for all my assignments. This approach allowed me to combine my prose, code, results, and supporting materials into a single file and render the resulting report directly to PDF.</p>
+</li>
+</ul>
+<p>I recently completed a course that used R for various statistical and machine learning methods. In separate articles I discussed the course and my semester project, <a href="https://bit.ly/asb-7130-acnw-project">Text Sentiment Analysis with R</a>, and provided an introduction to R Markdown.</p>
+
+<p>Here I’ll focus on how I used R Studio’s <a href="https://rmarkdown.rstudio.com">markdown-based publication tools</a> to integrate my analysis and documentation efforts and render the final results in a variety of formats.</p>
+
+<h1 id="course-application">
+<a class="anchor" href="#course-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Course Application</h1>
+
+<p>Throughout the course I used <a href="https://bookdown.org/yihui/rmarkdown/notebook.html">R Notebooks</a> to combine my prose, code, results, and supporting materials into a single file and render the resulting report directly to PDF.</p>
 
 <blockquote>
   <p>I started rendering to DOC, which I then converted to PDFs. Spare yourself the pain! Going direct to PDF was as easy as <a href="https://bookdown.org/yihui/rmarkdown-cookbook/install-latex.html">installing TinyTeX</a>.</p>
 </blockquote>
-
-<p>Much like Jupyter Notebooks, the R Notebook format is made up of cells that contain text or code. Text is formatted using <a href="https://rmarkdown.rstudio.com">R Markdown</a> and the attributes of code cells are managed with</p>
 
 <h3 id="tips-and-tricks">
 <a class="anchor" href="#tips-and-tricks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips and Tricks</h3>
@@ -149,22 +159,22 @@ window.onload = wrap_img;
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cd">#' ## Initialize</span><span class="w">
 </span><span class="cd">#' *Fun* with `mtcars`!</span><span class="w">
-</span><span class="c1">#+ summary-stats</span><span class="w">
+</span><span class="c1">#+ summary-stats, echo=FALSE</span><span class="w">
 </span><span class="c1"># Summarize mpg</span><span class="w">
 </span><span class="n">summary</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">knitr::spin("spin-me.R", knit = FALSE)</code> results in the file <code class="language-plaintext highlighter-rouge">spin-me.Rmd</code>, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named <code class="language-plaintext highlighter-rouge">load-libraries</code> that includes a comment:</p>
+<p><code class="language-plaintext highlighter-rouge">knitr::spin("spin-me.R", knit = FALSE)</code> results in the file <code class="language-plaintext highlighter-rouge">spin-me.Rmd</code>, with two chunks. The first is markdown with a level 2 header and some bold formatted text. The second is an R code chunk named <code class="language-plaintext highlighter-rouge">summary-stats</code> with <code class="language-plaintext highlighter-rouge">echo=FALSE</code> that includes a comment:</p>
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Initialize</span><span class="w">
 </span><span class="o">*</span><span class="n">Fun</span><span class="o">*</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">`mtcars`</span><span class="o">!</span><span class="w">
 
-</span><span class="err">```</span><span class="p">{</span><span class="n">r</span><span class="w"> </span><span class="n">summary</span><span class="o">-</span><span class="n">stats</span><span class="p">}</span><span class="w">
+</span><span class="err">```</span><span class="p">{</span><span class="n">r</span><span class="w"> </span><span class="n">summary</span><span class="o">-</span><span class="n">stats</span><span class="p">,</span><span class="w"> </span><span class="n">echo</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">}</span><span class="w">
 </span><span class="c1"># Summarize mpg</span><span class="w">
 </span><span class="n">summary</span><span class="p">(</span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
 
-<p>If you are only interested in publishing your R files, simply omit the <code class="language-plaintext highlighter-rouge">knit = FALSE</code> parameter from <code class="language-plaintext highlighter-rouge">spin</code> to go to the final rendered output, e.g. md, pdf, etc.</p>
+<p>If you are only interested in publishing your R files, simply omit the <code class="language-plaintext highlighter-rouge">knit = FALSE</code> parameter from <code class="language-plaintext highlighter-rouge">spin</code> to go directly to the final rendered output, e.g. md, pdf, etc.</p>
 
 <h2 id="twitter">
 <a class="anchor" href="#twitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Twitter</h2>
@@ -181,7 +191,7 @@ window.onload = wrap_img;
   </div>
 <!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js" repo="olearydj/antisimplistic" issue-term="title" label="blogpost-comment" theme="github-light" crossorigin="anonymous" async>
-</script><a class="u-url" href="/antisimplistic/r/2020/12/07/r-tips-and-tricks.html" hidden></a>
+</script><a class="u-url" href="/antisimplistic/r/2020/12/08/r-tips-and-tricks.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
