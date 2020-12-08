@@ -478,7 +478,7 @@ pre code { font-size: 15px !important; }
 
 p code { font-size: 19px; }
 
-.post-content p, .post-content li { font-size: 18px !important; color: #515151; }
+.post-content p, .post-content li { font-size: 18px; color: #515151; }
 
 p code { font-size: 16px; }
 

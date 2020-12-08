@@ -117,8 +117,16 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#what-is-r-markdown">What is R Markdown?</a></li>
+<li class="toc-entry toc-h2"><a href="#a-case-for-reproducible-workflows">A Case for Reproducible Workflows</a></li>
+<li class="toc-entry toc-h2"><a href="#what-is-r-markdown">What is R Markdown?</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#r-markdown-syntax">R Markdown Syntax</a></li>
+</ul>
+</li>
 </ul><p>I recently completed a course that used R for various statistical and machine learning methods. In a separate article I have discussed the course and my semester project, <a href="https://bit.ly/asb-7130-acnw-project">Text Sentiment Analysis with R</a>. Another is coming soon with R Markdown tips and tricks I learned along the way. But first some background is in order…</p>
+
+<h2 id="a-case-for-reproducible-workflows">
+<a class="anchor" href="#a-case-for-reproducible-workflows" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Case for Reproducible Workflows</h2>
 
 <p>In this article I’ll provide a simple introduction to the R Markdown for the uninitiated. I consider this approach, a form of <a href="https://en.wikipedia.org/wiki/Single-source_publishing"><em>single source publishing</em></a>, a vital component of reproducible computational research, and an essential skill. The following short video dramatization of real-life events provides a motivating example that we can all relate to… (Link opens in YouTube)</p>
 
@@ -130,6 +138,9 @@ window.onload = wrap_img;
 <a class="anchor" href="#what-is-r-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is R Markdown?</h2>
 
 <p>R Markdown was introduced in 2012 by <a href="https://twitter.com/xieyihui">Yihui Xie</a>, who has authored many of the most important packages in this space, including <code class="language-plaintext highlighter-rouge">{knitr}</code>. In his book, <a href="https://bookdown.org/yihui/rmarkdown/"><em>R Markdown: The Definitive Guide</em></a>, Xie describes R Markdown as “an authoring framework for data science,” in which a single <code class="language-plaintext highlighter-rouge">.Rmd</code> file is used to “save and execute code, and generate high quality reports” automatically. A very wide range of document types and formats are supported, including documents and presentations in HTML, PDF, Word, Markdown, Powerpoint, LaTeX, and more. Homework assignments, journal articles, full-length books, formal reports, presentations, web pages, and interactive dashboards are just <a href="https://bookdown.org/yihui/rmarkdown/basics-examples.html">some of the possibilities he describes</a>, with examples of each. To say it is a flexible and dynamic ecosystem is an understatement.</p>
+
+<h3 id="r-markdown-syntax">
+<a class="anchor" href="#r-markdown-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>R Markdown Syntax</h3>
 
 <p>Anyone familiar with R Markdown’s Python equivalent, <a href="https://jupyter.org">Jupyter Notebooks</a>, will find the following familiar.</p>
 
@@ -166,11 +177,11 @@ window.onload = wrap_img;
 17 The slope of the regression is `r round(b[2], digits = 3)`.
 </code></pre></div></div>
 
-<p>Let’s take a moment to dissect this.</p>
+<p>Let’s take a moment to walk through this, line by line.</p>
 
 <ul>
-  <li>Lines 01 through 05 are the YAML header (aka frontmatter), delimited above and below by lines containing three dashes. Here, we’ve specified the document’s title and author, which are used to generate a header in the rendered output. Other options like date and subtitle are also available. Also specified is the default output type, <code class="language-plaintext highlighter-rouge">html_document</code>. This section is actually optional, though rarely omitted. When omitted HTML output is used. More on YAML after the more pressing matters that follow.</li>
-  <li>Lines 07 and 08 are the body text (aka prose or narrative). The syntax <code class="language-plaintext highlighter-rouge">_R Markdown_</code> is an example of Markdown syntax, causing the text enclosed in underbar characters to be rendered in italics. A few quirks aside (e.g. <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html#spacing-and-paragraphs">newlines are considered spaces</a>), the rest of the <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Markdown syntax is similarly straightforward</a>.</li>
+  <li>Lines 01 through 05 are the YAML header (aka frontmatter), delimited above and below by lines containing three dashes. Here, we’ve specified the document’s title and author, which are used to generate a header in the rendered output. Other options like date and subtitle are also available. Also specified is the default output type, <code class="language-plaintext highlighter-rouge">html_document</code>. This section is actually optional, though rarely omitted. When it is, documents are rendered to HTML. More on YAML after the more pressing matters that follow.</li>
+  <li>Lines 07 and 08 are the body text (aka prose or narrative). The syntax <code class="language-plaintext highlighter-rouge">_R Markdown_</code> is an example of Markdown syntax, causing the text enclosed in underbar characters to be rendered in italics. A few quirks aside (e.g. <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html#spacing-and-paragraphs">newlines are considered spaces</a>), the rest of the <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Markdown syntax is similarly straightforward</a>, but surprisingly capable.</li>
   <li>Lines 10 through 15 are an R code chunk, delimited by three backticks (<code class="language-plaintext highlighter-rouge">```</code>)
     <ul>
       <li>Line 10 includes <code class="language-plaintext highlighter-rouge">{r fit-plot, echo=TRUE}</code>, which specifies the language for this code block (R) and the chunk name (fit-plot). It also sets the chunk option <code class="language-plaintext highlighter-rouge">echo=TRUE</code>, which specifies that both the code result will be included in the rendered output.</li>
@@ -181,11 +192,11 @@ window.onload = wrap_img;
   <li>Line 17 is body text with an in-line R expression. This expression will be evaluated when the document is rendered and the result will be  included in the resulting output.</li>
 </ul>
 
-<p>Note that YAML is <em>sensitive to white space</em>, which is part of the syntax, and <em>doesn’t allow tabs</em>. You can mostly learn this as you need it, referring to <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">this description by Xie</a>, or <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html">the YAML and output related sections of this article</a>.</p>
-
 <p>Rendering this to HTML via the Preview button results in the following:</p>
 
-<p><img src="/antisimplistic/images/rmd-minimal.png" alt="Minimal R Markdown Example - HTML Output"></p>
+<p><img src="/antisimplistic/images/rmd-minimal.png%20=600x" alt="Minimal R Markdown Example - HTML Output"></p>
+
+<p>Note that YAML is <em>sensitive to white space</em>, which is part of the syntax, and <em>doesn’t allow tabs</em>. You can mostly learn this as you need it, referring to <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">this description by Xie</a>, or <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html">the YAML and output related sections of this article</a>.</p>
 
 <p><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc flavor</a></p>
 
