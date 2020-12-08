@@ -118,15 +118,20 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#what-is-r-markdown">What is R Markdown?</a></li>
-<li class="toc-entry toc-h2"><a href="#the-notebook-format">The Notebook Format</a></li>
 </ul><p>I recently completed a course that used R for various statistical and machine learning methods. In separate articles I discussed the course and my semester project, <a href="https://bit.ly/asb-7130-acnw-project">Text Sentiment Analysis with R</a>, and some R Markdown tips and tricks I learned along the way.</p>
 
-<p>Here I’ll provide a simple introduction to the R Markdown for the uninitiated. I consider this approach, also known as <a href="https://en.wikipedia.org/wiki/Single-source_publishing"><em>single source publishing</em></a>, a vital component of reproducible computational research, and an essential skill.</p>
+<p>Here I’ll provide a simple introduction to the R Markdown for the uninitiated. I consider this approach, a form of <a href="https://en.wikipedia.org/wiki/Single-source_publishing"><em>single source publishing</em></a>, a vital component of reproducible computational research, and an essential skill.</p>
+
+<p><a href="https://www.youtube.com/watch?v=s3JldKoA0zw"><img src="https://img.youtube.com/vi/s3JldKoA0zw/0.jpg" alt="“A Reproducible Workflow” by Ignasi Bartomeus and Francisco Rodríguez-Sánchez"></a></p>
+
+<p>Not to fret! The basics are straightforward the short time it takes to begin using this method will more than pay for itself.</p>
 
 <h2 id="what-is-r-markdown">
 <a class="anchor" href="#what-is-r-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is R Markdown?</h2>
 
 <p>R Markdown was introduced in 2012 by <a href="https://twitter.com/xieyihui">Yihui Xie</a>, who has authored many of the most important packages in this space, including <code class="language-plaintext highlighter-rouge">{knitr}</code>. In his book, <a href="https://bookdown.org/yihui/rmarkdown/"><em>R Markdown: The Definitive Guide</em></a>, Xie describes R Markdown as “an authoring framework for data science,” in which a single <code class="language-plaintext highlighter-rouge">.Rmd</code> file is used to “save and execute code, and generate high quality reports” automatically. A very wide range of document types and formats are supported, including documents and presentations in HTML, PDF, Word, Markdown, Powerpoint, LaTeX, and more. Homework assignments, journal articles, full-length books, formal reports, presentations, web pages, and interactive dashboards are just <a href="https://bookdown.org/yihui/rmarkdown/basics-examples.html">some of the possibilities described here</a>, with examples of each. To say it is a flexible and dynamic ecosystem is an understatement.</p>
+
+<p>Anyone familiar with R Markdown’s Python equivalent, <a href="https://jupyter.org">Jupyter Notebooks</a>, will find the following familiar.</p>
 
 <p>R Markdown files consist of the following elements:</p>
 
@@ -163,12 +168,9 @@ The slope of the regression is `r round(b[2], digits = 3)`.
 
 <p>Rendering this to HTML via the Preview button results in the following:</p>
 
-<p><img src="/antisimplistic/images/rmd-minimal.jpg" alt="Minimal R Markdown Example - HTML Output"></p>
+<p><img src="/antisimplistic/images/rmd-minimal.png" alt="Minimal R Markdown Example - HTML Output"></p>
 
-<h2 id="the-notebook-format">
-<a class="anchor" href="#the-notebook-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Notebook Format</h2>
-
-<p>Much like its Python equivalent, <a href="https://jupyter.org">Jupyter Notebooks</a>, R Notebooks consist of cells containing text or code. Text is formatted using <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, specifically the <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc flavor</a>. Xie <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">details the syntax here</a>.</p>
+<p>Text is formatted using <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, specifically the <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc flavor</a>. Xie <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">details the syntax here</a>.</p>
 
 <p>Code output is controlled by options set in each chunk’s header.</p>
 
