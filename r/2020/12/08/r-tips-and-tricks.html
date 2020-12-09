@@ -106,7 +106,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -127,6 +127,7 @@ window.onload = wrap_img;
 <a href="#course-application">Course Application</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#tips-and-tricks">Tips and Tricks</a></li>
+<li class="toc-entry toc-h2"><a href="#more-details">More Details</a></li>
 <li class="toc-entry toc-h2"><a href="#twitter">Twitter</a></li>
 </ul>
 </li>
@@ -175,6 +176,19 @@ window.onload = wrap_img;
 </span></code></pre></div></div>
 
 <p>If you are only interested in publishing your R files, simply omit the <code class="language-plaintext highlighter-rouge">knit = FALSE</code> parameter from <code class="language-plaintext highlighter-rouge">spin</code> to go directly to the final rendered output, e.g. md, pdf, etc.</p>
+
+<p>To evaluate expressions included in body of your text, simply place the cursor in the inline chunk and press <code class="language-plaintext highlighter-rouge">Cmd/Ctrl + Enter</code>. The expression will be evaluated in the console, with the results displayed there and in a small pop-up window near the code.</p>
+
+<h2 id="more-details">
+<a class="anchor" href="#more-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Details</h2>
+
+<p>Note that YAML is <em>sensitive to white space</em>, which is part of the syntax, and <em>doesn’t allow tabs</em>. You can mostly learn this as you need it, referring to <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">this description by Xie</a>, or <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html">the YAML and output related sections of this article</a>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">?rmarkdown::html_document</code> for details on options</p>
+
+<p><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc flavor</a></p>
+
+<p>Code output is controlled by options set in each chunk’s header.</p>
 
 <h2 id="twitter">
 <a class="anchor" href="#twitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Twitter</h2>
