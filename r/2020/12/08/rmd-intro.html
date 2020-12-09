@@ -135,9 +135,17 @@ window.onload = wrap_img;
 
 <p>In this article I’ll provide a simple introduction to the R Markdown for the uninitiated. I consider this approach, a form of <a href="https://en.wikipedia.org/wiki/Single-source_publishing"><em>single source publishing</em></a>, a vital component of reproducible computational research, and an essential skill. The following short video dramatization of real-life events provides a motivating example that we can all relate to… (Link opens in YouTube)</p>
 
+<p>Markdown image link:</p>
+
 <p><a href="https://www.youtube.com/watch?v=s3JldKoA0zw"><img src="/antisimplistic/images/rmd-nrw-still.png" alt="“A Non-Reproducible Workflow” by Ignasi Bartomeus and Francisco Rodríguez-Sánchez"></a></p>
 
-<p>The video ends with the glimpse of a better future, a hopeful vision of reproducible workflows powered by source control (<a href="https://git-scm.com">git</a>) and R Markdown. It is within reach! The basics are straightforward and the short time it takes to begin using this method will pay generous dividends ever after.</p>
+<p>HTML image link:</p>
+
+<p><a href="https://www.youtube.com/watch?v=s3JldKoA0zw">
+  <img src="/antisimplistic/images/rmd-nrw-still.png" alt="A Non-Reproducible Workflow” by Ignasi Bartomeus and Francisco Rodríguez-Sánchez" width="600">
+</a></p>
+
+<p>The video ends with the glimpse of a better future, a hopeful vision of reproducible workflows powered by source control (<a href="https://git-scm.com">git</a>) and R Markdown. It is within reach! The tools are built into R Studio and the essentials are easy to grasp and apply. The short time it takes to begin using this method will pay generous dividends ever after.</p>
 
 <h2 id="what-is-r-markdown">
 <a class="anchor" href="#what-is-r-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is R Markdown?</h2>
@@ -168,23 +176,23 @@ window.onload = wrap_img;
 
 <p>A minimal <code class="language-plaintext highlighter-rouge">.Rmd</code> example is included below. This is based on the <a href="https://bookdown.org/yihui/rmarkdown/basics.html">Xie’s sample</a>, which I’ve modified to demonstrate all of the elements mentioned above.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01 ---
-02 title: "Hello R Markdown"
-03 author: "Awesome Me"
-04 output: html_document
-05 ---
-06
-07 This is a paragraph in an _R Markdown_ document.
-08 Below is a code chunk:
-09
-10 ```{r fit-plot, echo=TRUE}
-11 fit = lm(dist ~ speed, data = cars)
-12 b   = coef(fit)
-13 plot(cars)
-14 abline(fit)
-15 ```
-16
-17 The slope of the regression is `r round(b[2], digits = 3)`.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>01| ---
+02| title: "Hello R Markdown"
+03| author: "Awesome Me"
+04| output: html_document
+05| ---
+06|
+07| This is a paragraph in an _R Markdown_ document.
+08| Below is a code chunk:
+09|
+10| ```{r fit-plot, echo=TRUE}
+11| fit = lm(dist ~ speed, data = cars)
+12| b   = coef(fit)
+13| plot(cars)
+14| abline(fit)
+15| ```
+16|
+17| The slope of the regression is `r round(b[2], digits = 3)`.
 </code></pre></div></div>
 
 <p>Let’s take a moment to walk through this, line by line.</p>
