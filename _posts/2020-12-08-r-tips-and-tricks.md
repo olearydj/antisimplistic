@@ -52,6 +52,22 @@ summary(mtcars$mpg)
 
 If you are only interested in publishing your R files, simply omit the `knit = FALSE` parameter from `spin` to go directly to the final rendered output, e.g. md, pdf, etc.
 
+
+
+To evaluate expressions included in body of your text, simply place the cursor in the inline chunk and press `Cmd/Ctrl + Enter`. The expression will be evaluated in the console, with the results displayed there and in a small pop-up window near the code.
+
+## More Details
+
+Note that YAML is _sensitive to white space_, which is part of the syntax, and _doesn't allow tabs_. You can mostly learn this as you need it, referring to [this description by Xie](https://bookdown.org/yihui/rmarkdown/output-formats.html), or [the YAML and output related sections of this article](http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html).
+
+`?rmarkdown::html_document` for details on options
+
+[Pandoc flavor](https://pandoc.org/MANUAL.html#pandocs-markdown)
+
+Code output is controlled by options set in each chunk's header.
+
+
+
 ## Twitter
 
 I found several of these on [Brendan Cullen's](https://twitter.com/_bcullen) recent twitter thread:

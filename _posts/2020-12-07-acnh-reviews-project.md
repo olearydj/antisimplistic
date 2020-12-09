@@ -24,6 +24,9 @@ I quickly focused my search on the [TidyTuesday](https://github.com/rfordatascie
 
 The following slides summarize the project and were adapted from a shorter presentation that was given in class. The full report follows for those interested in more detail.
 
+> An embedded PDF viewer should show up below, but it can be finicky. Give it a second or try refreshing.
+> Otherwise, you can [view / download it on GitHub](https://bit.ly/asb-7130-acnh-deck).
+
 <object width="100%" height="500px" data="https://docs.google.com/gview?embedded=true&url=https://olearydj.github.io/antisimplistic/docs/ProjectPresentation-shared.pdf"></object>
 
 # Project
