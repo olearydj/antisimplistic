@@ -100,7 +100,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      5 min read
     
 </span></p>
 
@@ -121,10 +121,11 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#what-is-r-markdown">What is R Markdown?</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#r-markdown-syntax">R Markdown Syntax</a></li>
-<li class="toc-entry toc-h3"><a href="#sample-rmd-and-output">Sample .Rmd and Output</a></li>
+<li class="toc-entry toc-h3"><a href="#sample-code-and-output">Sample Code and Output</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#talk-about-the-process">Talk About the Process</a></li>
+<li class="toc-entry toc-h2"><a href="#rendering-process">Rendering Process</a></li>
+<li class="toc-entry toc-h2"><a href="#notebooks">Notebooks</a></li>
 <li class="toc-entry toc-h2"><a href="#more-details">More Details</a></li>
 <li class="toc-entry toc-h1"><a href="#conclusion">Conclusion</a></li>
 </ul><p>I recently completed a course that used R for various statistical and machine learning methods. In a separate article I have discussed the course and my semester project, <a href="https://bit.ly/asb-7130-acnw-project">Text Sentiment Analysis with R</a>. Another is coming soon with R Markdown tips and tricks I learned along the way. But first some background is in order…</p>
@@ -136,7 +137,7 @@ window.onload = wrap_img;
 
 <p><a href="https://www.youtube.com/watch?v=s3JldKoA0zw"><img src="/antisimplistic/images/rmd-nrw-still.png" alt="“A Non-Reproducible Workflow” by Ignasi Bartomeus and Francisco Rodríguez-Sánchez"></a></p>
 
-<p>The video ends with the glimpse of a better future, a hopeful vision of reproducible workflows powered by source control (git) and R Markdown. It is within reach! The basics are straightforward and the short time it takes to begin using this method will more than pay for itself.</p>
+<p>The video ends with the glimpse of a better future, a hopeful vision of reproducible workflows powered by source control (<a href="https://git-scm.com">git</a>) and R Markdown. It is within reach! The basics are straightforward and the short time it takes to begin using this method will pay generous dividends ever after.</p>
 
 <h2 id="what-is-r-markdown">
 <a class="anchor" href="#what-is-r-markdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is R Markdown?</h2>
@@ -146,7 +147,9 @@ window.onload = wrap_img;
 <h3 id="r-markdown-syntax">
 <a class="anchor" href="#r-markdown-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>R Markdown Syntax</h3>
 
-<p>Anyone familiar with R Markdown’s Python equivalent, <a href="https://jupyter.org">Jupyter Notebooks</a>, will find the following familiar.</p>
+<blockquote>
+  <p>Anyone that has worked with R Markdown’s Python equivalent, <a href="https://jupyter.org">Jupyter Notebooks</a>, will find the following familiar.</p>
+</blockquote>
 
 <p>R Markdown files consist of the following elements:</p>
 
@@ -158,10 +161,10 @@ window.onload = wrap_img;
   <li>Interspersed code chunks that are set off by three backticks and a curly braced block specifying the language used and setting chunk options</li>
 </ul>
 
-<p>Rmd also allows users to embed code expressions in the prose by enclosing them in single backticks.</p>
+<p>R Markdown also allows users to embed code expressions in the prose by enclosing them in single backticks.</p>
 
-<h3 id="sample-rmd-and-output">
-<a class="anchor" href="#sample-rmd-and-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample <code class="language-plaintext highlighter-rouge">.Rmd</code> and Output</h3>
+<h3 id="sample-code-and-output">
+<a class="anchor" href="#sample-code-and-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code and Output</h3>
 
 <p>A minimal <code class="language-plaintext highlighter-rouge">.Rmd</code> example is included below. This is based on the <a href="https://bookdown.org/yihui/rmarkdown/basics.html">Xie’s sample</a>, which I’ve modified to demonstrate all of the elements mentioned above.</p>
 
@@ -188,7 +191,7 @@ window.onload = wrap_img;
 
 <ul>
   <li>Lines 01 through 05 are the YAML header (aka frontmatter), delimited above and below by lines containing three dashes. Here, we’ve specified the document’s title and author, which are used to generate a header in the rendered output. Other options like date and subtitle are also available. Also specified is the default output type, <code class="language-plaintext highlighter-rouge">html_document</code>. This section is actually optional, though rarely omitted. When it is, documents are rendered to HTML. More on YAML after the more pressing matters that follow.</li>
-  <li>Lines 07 and 08 are the body text (aka prose or narrative). The syntax <code class="language-plaintext highlighter-rouge">_R Markdown_</code> is an example of Markdown syntax, causing the text enclosed in underbar characters to be rendered in italics. A few quirks aside (e.g. <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html#spacing-and-paragraphs">newlines are considered spaces</a>), the rest of the <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Markdown syntax is similarly straightforward</a>, but surprisingly capable.</li>
+  <li>Lines 07 and 08 are the body text (aka prose or narrative). The bit <code class="language-plaintext highlighter-rouge">_R Markdown_</code> is an example of Markdown syntax, causing the text enclosed in underbar characters to be rendered in italics. A few quirks aside (e.g. <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html#spacing-and-paragraphs">newlines are considered spaces</a>), the rest of the <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Markdown syntax is similarly straightforward</a>, but surprisingly capable.</li>
   <li>Lines 10 through 15 are an R code chunk, delimited by three backticks (<code class="language-plaintext highlighter-rouge">```</code>)
     <ul>
       <li>Line 10 includes <code class="language-plaintext highlighter-rouge">{r fit-plot, echo=TRUE}</code>, which specifies the language for this code block (R) and the chunk name (fit-plot). It also sets the chunk option <code class="language-plaintext highlighter-rouge">echo=TRUE</code>, which specifies that both the code result will be included in the rendered output.</li>
@@ -199,23 +202,40 @@ window.onload = wrap_img;
   <li>Line 17 is body text with an in-line R expression. This expression will be evaluated when the document is rendered and the result will be  included in the resulting output.</li>
 </ul>
 
-<p>Rendering this to HTML via the Preview button results in the following:</p>
-
-<p>TRYING IT IN HTML…</p>
+<p>Rendering this to HTML via the Knit / Preview button results in the following:</p>
 
 <p><img src="/antisimplistic/images/rmd-minimal.png" alt="Minimal R Markdown Example - HTML Output" width="600"></p>
 
-<p>TRIED IT IN MARKDOWN… (no worky)</p>
+<h2 id="rendering-process">
+<a class="anchor" href="#rendering-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rendering Process</h2>
 
-<p><img src="/antisimplistic/images/rmd-minimal.png%20=600x" alt="Minimal R Markdown Example - HTML Output"></p>
+<p>Clicking the Knit button (which sometimes becomes Preview for reasons I do not yet grasp) kicks off the following process:</p>
 
-<h2 id="talk-about-the-process">
-<a class="anchor" href="#talk-about-the-process" aria-hidden="true"><span class="octicon octicon-link"></span></a>Talk About the Process</h2>
+<p><img src="/antisimplistic/images/rmd-process.png" alt="Rmd Rendering Process"></p>
+
+<blockquote>
+  <p>In a nutshell, R Markdown stands on the shoulders of <a href="https://yihui.org/knitr/">knitr</a> and <a href="https://pandoc.org">Pandoc</a>. The former executes the computer code embedded in Markdown, and converts R Markdown to Markdown. The latter renders Markdown to the output format you want (such as PDF, HTML, Word, and so on). - <a href="https://bookdown.org/yihui/rmarkdown/">Xie</a></p>
+</blockquote>
+
+<p>While it is not typically necessary to understand the details of this process it it useful to know that both knitr and Pandoc are involved.</p>
+
+<p>It is, however, <em>critical</em> to understand the following:</p>
+
+<blockquote>
+  <p>Under the hood, RStudio calls the function <code class="language-plaintext highlighter-rouge">rmarkdown::render()</code> to render the document <em>in a new R session</em>. Please note the emphasis here, which often confuses R Markdown users. Rendering an Rmd document in a new R session means that <em>none of the objects in your current R session (e.g., those you created in your R console) are available to that session</em>. - <a href="https://bookdown.org/yihui/rmarkdown/compile.html">Xie</a></p>
+</blockquote>
+
+<p>In other words your <code class="language-plaintext highlighter-rouge">.Rmd</code> must run start to finish, without errors, from a clean environment. If, for example, the code relies on variables created or packages loaded via the console during your interactive session, the Knit will fail.</p>
+
+<h2 id="notebooks">
+<a class="anchor" href="#notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notebooks</h2>
 
 <h2 id="more-details">
 <a class="anchor" href="#more-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>More Details</h2>
 
 <p>Note that YAML is <em>sensitive to white space</em>, which is part of the syntax, and <em>doesn’t allow tabs</em>. You can mostly learn this as you need it, referring to <a href="https://bookdown.org/yihui/rmarkdown/output-formats.html">this description by Xie</a>, or <a href="http://stats.idre.ucla.edu/stat/data/rmarkdown/rmarkdown_seminar_flat.html">the YAML and output related sections of this article</a>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">?rmarkdown::html_document</code> for details on options</p>
 
 <p><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc flavor</a></p>
 
