@@ -12,7 +12,9 @@ permalink: /about/
 - [Blog / Portfolio](https://olearydj.github.io/antisimplistic/)
 - [LinkedIn](https://www.linkedin.com/in/djoleary/)
 - [Twitter](https://twitter.com/antisimplistic)
+
 [//]: # (- [Github](https://github.com/olearydj))
+
 - [SlideShare](https://www.slideshare.net/Antisimplistic)
 - [Resume (Long Form)]({{ site.baseurl }}/docs/2020-11-07-DJO-Resume.pdf)
 - [Student CV]({{ site.baseurl }}/docs/2020-11-07-DJO-CV-Student-Portfolio.pdf)
