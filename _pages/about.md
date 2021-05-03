@@ -18,7 +18,7 @@ permalink: /about/
 - [Hybrid CV, Summer 2021]({{ site.baseurl }}/docs/2021-05-03-DJO-CV-Hybrid-Portfolio.pdf)
 
 ## Bio
-<img align="left" height="315" src="{{site.baseurl}}/images/hello.png">
+<img align="left" height="250" src="{{site.baseurl}}/images/hello.png">
 
 Antisimplistic is Dan O'Leary, a second career Instructor, PhD Student and Researcher in the Department of Industrial and Systems Engineering at Auburn University. After 23 years in the games industry as a co-founder of the independent development studio [n-Space](https://en.wikipedia.org/wiki/N-Space), it was past time for a change.
 
