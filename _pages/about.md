@@ -8,16 +8,14 @@ permalink: /about/
 ## Links
 
 [//]: # (- [Portfolio](https://olearydj.github.io/antisimplistic/markdown/portfolio/2020/11/07/portfolio-index.html))
+[//]: # (- [SlideShare](https://www.slideshare.net/Antisimplistic))
+[//]: # (- [Resume (Long Form)]({{ site.baseurl }}/docs/2020-11-07-DJO-Resume.pdf))
 
 - [Blog / Portfolio](https://olearydj.github.io/antisimplistic/)
 - [LinkedIn](https://www.linkedin.com/in/djoleary/)
 - [Twitter](https://twitter.com/antisimplistic)
-
-[//]: # (- [Github](https://github.com/olearydj))
-
-- [SlideShare](https://www.slideshare.net/Antisimplistic)
-- [Resume (Long Form)]({{ site.baseurl }}/docs/2020-11-07-DJO-Resume.pdf)
-- [Student CV]({{ site.baseurl }}/docs/2020-11-07-DJO-CV-Student-Portfolio.pdf)
+- [Github](https://github.com/olearydj)
+- [Hybrid CV, Summer 2021]({{ site.baseurl }}/docs/2021-05-03-DJO-CV-Hybrid-Portfolio.pdf)
 
 ## Bio
 <img align="left" height="310" src="{{site.baseurl}}/images/hello.png">
