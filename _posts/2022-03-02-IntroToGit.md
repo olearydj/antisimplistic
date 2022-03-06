@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: "What is version control, why should you care, and how do you use GIT to do it? An introduction to this essential Software Carpentry skill."
+description: "What is version control, why should you care, and how do you use GIT to do it... An introduction to this foundational Software Carpentry skill."
 categories: [Software Carpentry, Presentation]
 title: "An Introduction to Version Control with GIT"
 image: images/git-cover.png
