@@ -7,7 +7,7 @@ title: "An Introduction to Version Control with GIT"
 image: images/git-cover.png
 comments: true
 ---
-Using version control tools like GIT is an essential skill for anyone that writes code, and plays an important role in doing research that is reproducable, collaborative, and transparent. Yet, like many other so-called Software Carpentries (SWCs: ["basic lab skills for research computing"](https://software-carpentry.org/)), GIT isn't often taught in computer science programs, and rarely so outside them.
+Using version control tools like GIT is an essential skill for anyone that writes code, and plays an important role in doing research that is reproducable, collaborative, and transparent. Yet, like many other so-called Software Carpentries (SWCs: ["basic lab skills for research computing"](https://software-carpentry.org/)), GIT isn't often taught in computer science programs, and rarely so outside them. Impact-Site-Verification: efb3a780-8ca7-4a80-aad4-707568184526
 
 I'm passionate about giving students the tools they need to succeed, "filling in the blanks" between what their curricula teaches and what the real world requires. This presentation was created to introduce the concepts of version control as a foundational SWC skill and demonstrate GIT in four key use-cases.
 
